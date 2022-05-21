@@ -11,6 +11,7 @@ function App() {
       <div className='main-wrapper'>
         <Header />
         <ToplineNews />
+        <LatestNews />
       </div>
     </div>
   );
