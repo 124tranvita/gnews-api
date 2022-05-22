@@ -19,3 +19,12 @@
   );
   /* z-index: 10; */
 }
+
+.title {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #000000;
+  border: none;
+}

@@ -16,10 +16,10 @@ const fetchDataFailed = (error) => ({
 })
 
 
-export const fetchTopline = () => {
+export const fetchTopline = (lang) => {
   return dispatch => {
     dispatch(fetchData());
-    fetchToplineService()
+    fetchToplineService(lang)
       .then(articles => dispatch(fetchDataSuccess(articles)))
       .catch(error => dispatch(fetchDataFailed(error)));
   }

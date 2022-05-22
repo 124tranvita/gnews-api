@@ -12,12 +12,19 @@ function Langauge() {
   console.log(dropdownTitle);
   const dispatch = useDispatch();
 
+  const Title = () => {
+    return (
+      <>
+        <span className={`fi fi-${dropdownTitle.flag}`}></span><span> {dropdownTitle.lang}</span>
+      </>
+    )
+  }
+
   return (
     <>
-      <span className={`fi fi-${dropdownTitle.flag}`}></span>
       <NavDropdown
         id="nav-dropdown-dark-example"
-        title={dropdownTitle.lang}
+        title={<Title />}
         menuVariant="dark"
         onSelect={(eventKey) => dispatch(changeLang(eventKey))}
       >

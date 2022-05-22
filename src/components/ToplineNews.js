@@ -5,18 +5,19 @@ import styles from "../style/topline.module.css";
 import { fetchTopline } from "../actions/fetchTopline";
 
 function ToplineNews() {
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const { loading, articles, error } = useSelector(state => ({
     loading: state.topline.loading,
     articles: state.topline.articles,
     error: state.topline.error
-  }))
+  }));
+  const lang = useSelector(state => state.lang)
 
 
   useEffect(() => {
-    dispatch(fetchTopline());
-  }, [dispatch]);
+    dispatch(fetchTopline(lang));
+  }, [dispatch, lang]);
 
   if (loading) {
     return (

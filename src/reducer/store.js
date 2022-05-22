@@ -5,6 +5,7 @@ import politicsReducer from "./politics";
 import sportsReducer from "./sports";
 import entmtReducer from "./entmts";
 import changeLangReducer from "./language";
+import searchReducer from "./search";
 
 const store = createStore(
   combineReducers({
@@ -12,6 +13,7 @@ const store = createStore(
     politics: politicsReducer,
     sports: sportsReducer,
     entertainments: entmtReducer,
+    search: searchReducer,
     lang: changeLangReducer
   }),
   compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))

@@ -25,9 +25,14 @@ function ControlledCarousel({ articles }) {
                 height="480"
               />
               <Carousel.Caption className={styles.carouselCaption}>
-                <h1>{article.title}</h1>
+                {article.title.length >= 128 ? (
+                  <div className={styles.title}>
+                    <h1>{article.title}</h1>
+                  </div>
+                ) : <h1>{article.title}</h1>}
+
                 <p>{article.description}</p>
-                <span>{article.publishedAt}</span> | <span>{article.source.name}</span>
+                <span>{article.publishedAt}</span> | <span>{article.source.name}</span> | <a href={article.source.url}><span>Read more...</span></a>
               </Carousel.Caption>
             </Carousel.Item>
           )

@@ -77,7 +77,7 @@ const ArticlesView = ({ articles, view }) => {
                   style={{ height: '10rem' }}
                 />
                 <Card.Body>
-                  <Card.Title>{article.title}</Card.Title>
+                  <Card.Title><a href={article.source.url} className={styles.titleLink}>{article.title}</a></Card.Title>
                   <Card.Text>
                     {article.content}
                   </Card.Text>
@@ -86,7 +86,7 @@ const ArticlesView = ({ articles, view }) => {
                   <Card.Text>
                     <span>{article.publishedAt}</span> | <span>{article.source.name}</span>
                   </Card.Text>
-                  <Card.Link href={article.source.url}>Read more...</Card.Link>
+                  <Card.Link href={article.source.url} className={styles.footerLink}>Read more...</Card.Link>
                 </Card.Body>
               </Card>
             </div>

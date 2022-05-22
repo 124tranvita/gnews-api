@@ -1,5 +1,6 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import Langauge from './Language';
+import Search from './Search';
 
 function Header() {
   return (
@@ -21,7 +22,10 @@ function Header() {
               <Nav.Link href="#link">SPORTS</Nav.Link>
               <Nav.Link href="#link">ENTERTAINMENT</Nav.Link>
             </Nav>
-            <Nav className="text-end">
+            <Nav className="text-md-end">
+              <Search />
+            </Nav>
+            <Nav className="text-md-end">
               <Langauge />
             </Nav>
           </Navbar.Collapse>

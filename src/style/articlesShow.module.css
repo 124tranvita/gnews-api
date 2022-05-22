@@ -125,3 +125,12 @@
     transform: rotate(360deg);
   }
 }
+
+.titleLink {
+  color: #000;
+}
+
+.footerLink {
+  color: blue;
+  text-decoration: underline;
+}
