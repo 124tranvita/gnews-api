@@ -1,4 +1,4 @@
-import { FETCH_POLITICS, FETCH_POLITICS_SUCCESS, FETCH_POLITICS_FAILED } from "../actions/constants";
+import { FETCH_SPORTS, FETCH_SPORTS_SUCCESS, FETCH_SPORTS_FAILED } from "../actions/constants";
 
 const initState = {
   loading: false,
@@ -6,20 +6,20 @@ const initState = {
   error: null
 }
 
-const politicsReducer = (state = initState, action) => {
+const sportsReducer = (state = initState, action) => {
   switch (action.type) {
-    case FETCH_POLITICS:
+    case FETCH_SPORTS:
       return ({
         ...state,
         loading: true
       })
-    case FETCH_POLITICS_SUCCESS:
+    case FETCH_SPORTS_SUCCESS:
       return ({
         ...state,
         loading: false,
         articles: action.payload
       })
-    case FETCH_POLITICS_FAILED:
+    case FETCH_SPORTS_FAILED:
       return ({
         ...state,
         loading: false,
@@ -30,4 +30,4 @@ const politicsReducer = (state = initState, action) => {
   }
 }
 
-export default politicsReducer;
+export default sportsReducer;

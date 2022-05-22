@@ -1,4 +1,5 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
+import Langauge from './Language';
 
 function Header() {
   return (
@@ -19,6 +20,9 @@ function Header() {
               <Nav.Link href="#home">POLITICS</Nav.Link>
               <Nav.Link href="#link">SPORTS</Nav.Link>
               <Nav.Link href="#link">ENTERTAINMENT</Nav.Link>
+            </Nav>
+            <Nav className="text-end">
+              <Langauge />
             </Nav>
           </Navbar.Collapse>
         </Container>

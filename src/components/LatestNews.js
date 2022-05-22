@@ -17,7 +17,7 @@ function LatestNews() {
     <>
       <div className={styles.captionWrapper}>
         <div className={styles.caption}>
-          <h4>Latest News</h4>
+          <h4>Latest</h4>
           <button id="politics" className={styles.btnNews} name="politics">
             <p>&#9776;</p>
           </button>
@@ -32,7 +32,7 @@ function LatestNews() {
         <div className={styles.error}>{error.message}</div>
       </div>)}
 
-      {articles.length != 0 && (<LeftPanel sliceArticles={sliceArticles} />)}
+      {articles.length !== 0 && (<LeftPanel sliceArticles={sliceArticles} />)}
     </>
   )
 }

@@ -1,27 +1,25 @@
-import { FETCH_TOPLINE, FETCH_TOPLINE_SUCCESS, FETCH_TOPLINE_FAILED } from "./constants";
-import { fetchToplineService } from "../services/fetchAPIService";
+import { FETCH_SPORTS, FETCH_SPORTS_SUCCESS, FETCH_SPORTS_FAILED } from "../actions/constants";
+import { fetchArticlesService } from "../services/fetchAPIService";
 
 const fetchData = () => ({
-  type: FETCH_TOPLINE
+  type: FETCH_SPORTS
 })
 
 const fetchDataSuccess = (articles) => ({
-  type: FETCH_TOPLINE_SUCCESS,
+  type: FETCH_SPORTS_SUCCESS,
   payload: articles
 })
 
 const fetchDataFailed = (error) => ({
-  type: FETCH_TOPLINE_FAILED,
+  type: FETCH_SPORTS_FAILED,
   payload: error
 })
 
-
-export const fetchTopline = () => {
+export const fetchSports = (lang) => {
   return dispatch => {
     dispatch(fetchData());
-    fetchToplineService()
+    fetchArticlesService("sport", lang)
       .then(articles => dispatch(fetchDataSuccess(articles)))
       .catch(error => dispatch(fetchDataFailed(error)));
   }
 }
-
