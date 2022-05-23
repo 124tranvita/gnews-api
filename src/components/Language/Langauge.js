@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavDropdown } from "react-bootstrap";
-import { changeLang } from "../../actions/changeLang";
+import { changeLang } from "../../services/actions/changeLang";
 
 function Langauge() {
   const [dropdownTitle, setDropdownTitle] = useState({

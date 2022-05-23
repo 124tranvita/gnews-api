@@ -2,7 +2,7 @@ import {
   FETCH_TOPLINE,
   FETCH_TOPLINE_SUCCESS,
   FETCH_TOPLINE_FAILED,
-} from "../../actions/constants";
+} from "../actions/constants";
 
 const initState = {
   loading: false,

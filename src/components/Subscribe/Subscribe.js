@@ -6,7 +6,10 @@ function Subscribe() {
   const [email, setEmail] = useState("");
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setEmail("");
+    setShow(false);
+  };
   const handleShow = () => setShow(true);
 
   const handleSubmit = (e) => {
@@ -17,7 +20,7 @@ function Subscribe() {
   return (
     <>
       <section className="">
-        <form action="">
+        <form action="" onSubmit={(e) => handleSubmit(e)}>
           <div className="row d-flex justify-content-center">
             <div className="col-auto">
               <p className="pt-2">
@@ -28,19 +31,17 @@ function Subscribe() {
               <div className="form-outline form-white mb-4">
                 <input
                   type="email"
-                  id={styles.email}
                   className="form-control"
+                  id={styles.email}
                   placeholder="Email address"
                   onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  required
                 />
               </div>
             </div>
             <div className="col-auto">
-              <button
-                type="submit"
-                className="btn btn-outline-light mb-4"
-                onClick={handleSubmit}
-              >
+              <button type="submit" className="btn btn-outline-light mb-4">
                 Subscribe
               </button>
             </div>

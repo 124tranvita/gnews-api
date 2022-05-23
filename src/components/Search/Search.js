@@ -1,9 +1,12 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import SearchResultModal from "./SearchResultModal";
 import styles from "./style/search.module.css";
-import { showResultModal, fetchSearch } from "../../actions/fetchSearch";
+import {
+  showResultModal,
+  fetchSearch,
+} from "../../services/actions/fetchSearch";
 
 function Search() {
   const dispatch = useDispatch();
@@ -15,6 +18,10 @@ function Search() {
   const [to, setTo] = useState("");
 
   const dropdownContent = useRef();
+
+  useEffect(() => {
+    dropdownContent.current.style.display = "none";
+  }, []);
 
   const handleOpenSearchPanel = () => {
     if (dropdownContent.current.style.display === "none") {

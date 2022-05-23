@@ -1,15 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import styles from "../style/latestNews.module.css"
-
+import styles from "./style/latestNews.module.css";
 
 function LatestNews() {
-
-  const { loading, articles, error } = useSelector(state => ({
+  const { loading, articles, error } = useSelector((state) => ({
     loading: state.topline.loading,
     articles: state.topline.articles,
-    error: state.topline.error
-  }))
+    error: state.topline.error,
+  }));
 
   const sliceArticles = articles.slice(0, 4);
 
@@ -24,17 +22,21 @@ function LatestNews() {
         </div>
       </div>
 
-      {loading && (<div className={styles.loadingPanel}>
-        <div className={styles.loader}></div>
-      </div>)}
+      {loading && (
+        <div className={styles.loadingPanel}>
+          <div className={styles.loader}></div>
+        </div>
+      )}
 
-      {error && (<div className={styles.loadingPanel}>
-        <div className={styles.error}>{error.message}</div>
-      </div>)}
+      {error && (
+        <div className={styles.loadingPanel}>
+          <div className={styles.error}>{error.message}</div>
+        </div>
+      )}
 
-      {articles.length !== 0 && (<LeftPanel sliceArticles={sliceArticles} />)}
+      {articles.length !== 0 && <LeftPanel sliceArticles={sliceArticles} />}
     </>
-  )
+  );
 }
 
 const LeftPanel = ({ sliceArticles }) => {
@@ -50,27 +52,27 @@ const LeftPanel = ({ sliceArticles }) => {
     // Remove active class from all <li>
     const clearActiveClass = () => {
       liEl.forEach((li) => {
-        li.classList.remove(styles.active)
-      })
-    }
+        li.classList.remove(styles.active);
+      });
+    };
 
     // Add click event for every <li> in <ul>
     liEl.forEach((li) => {
-      li.addEventListener('click', () => {
+      li.addEventListener("click", () => {
         clearActiveClass();
-        li.classList.add(styles.active)
-      })
-    })
+        li.classList.add(styles.active);
+      });
+    });
 
     // Clean up function
     return () => {
       liEl.forEach((li) => {
-        li.removeEventListener('click', () => {
+        li.removeEventListener("click", () => {
           clearActiveClass();
-          li.classList.add(styles.active)
-        })
-      })
-    }
+          li.classList.add(styles.active);
+        });
+      });
+    };
   }, []);
 
   return (
@@ -90,7 +92,7 @@ const LeftPanel = ({ sliceArticles }) => {
                       height="96"
                     />
                   </li>
-                )
+                );
               })}
             </ul>
           </div>
@@ -100,9 +102,8 @@ const LeftPanel = ({ sliceArticles }) => {
         </div>
       </div>
     </>
-  )
-}
-
+  );
+};
 
 const RightPanel = ({ item }) => {
   return (
@@ -121,8 +122,7 @@ const RightPanel = ({ item }) => {
         </div>
       </div>
     </>
-  )
-}
-
+  );
+};
 
 export default LatestNews;

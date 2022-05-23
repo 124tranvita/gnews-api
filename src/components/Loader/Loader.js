@@ -1,7 +1,6 @@
-import styles from "../style/loader.module.css";
+import styles from "./style/loader.module.css";
 
 function Loader() {
-
   return (
     <>
       <div className={styles.captionWrapper}>
@@ -14,8 +13,7 @@ function Loader() {
         </div>
       </div>
     </>
-  )
-
+  );
 }
 
 export default Loader;

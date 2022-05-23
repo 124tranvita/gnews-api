@@ -4,7 +4,7 @@ export const fetchToplineService = (lang) => {
   return new Promise((resolve, reject) => {
     axios
       .get(
-        `https://gnews.io/api/v4/top-headlines?token=184613347e789cd1ef9b0580044a41bc56&lang=${lang}`
+        `https://gnews.io/api/v4/top-headlines?token=18463347e789cd1ef9b0580044a41bc56&lang=${lang}`
       )
       .then((response) => {
         resolve(response.data.articles);

@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Modal, Button, Card } from "react-bootstrap";
-import { closeResultModal } from "../../actions/fetchSearch";
-import Loader from "../Loader";
+import { closeResultModal } from "../../services/actions/fetchSearch";
+import Loader from "../Loader/Loader";
 
 function SearchResultModal({ keyword }) {
   const dispatch = useDispatch();
