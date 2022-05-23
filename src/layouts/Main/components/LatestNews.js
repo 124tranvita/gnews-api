@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
+import { Error } from "../../../components/Loader";
 import styles from "./style/latestNews.module.css";
 
 function LatestNews() {
@@ -30,7 +31,7 @@ function LatestNews() {
 
       {error && (
         <div className={styles.loadingPanel}>
-          <div className={styles.error}>{error.message}</div>
+          <Error error={error} />
         </div>
       )}
 

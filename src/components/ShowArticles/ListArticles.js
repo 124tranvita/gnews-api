@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Card } from "react-bootstrap";
 import styles from "./style/articlesShow.module.css";
+import { Error } from "../Loader";
 
 function ListArticles({ keyword, fetchData }) {
   const [view, setView] = useState(3);
@@ -52,7 +53,7 @@ function ListArticles({ keyword, fetchData }) {
 
       {error && (
         <div className={styles.loadingPanel}>
-          <div className={styles.error}>{error.message}</div>
+          <Error error={error} />
         </div>
       )}
 
