@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Modal, Button, Card } from "react-bootstrap";
 import { closeResultModal } from "../../services/actions/fetchSearch";
-import Loader from "../Loader/Loader";
+import { Loader, Error } from "../Loader";
 
 function SearchResultModal({ keyword }) {
   const dispatch = useDispatch();
@@ -23,8 +23,13 @@ function SearchResultModal({ keyword }) {
         </Modal.Header>
         <Modal.Body>
           {loading && <Loader />}
-          {error && <div>{error.message}</div>}
-          {articles.length !== 0 && (
+          {error && (
+            <div style={{ height: "150px" }}>
+              <Error error={error} />
+            </div>
+          )}
+          {!loading && !error && articles.length === 0 && <NotFound />}
+          {!loading && !error && articles.length !== 0 && (
             <div className="row">
               {articles.map((article, index) => (
                 <div className="col-12" key={index}>
@@ -62,5 +67,23 @@ function SearchResultModal({ keyword }) {
     </>
   );
 }
+
+const NotFound = () => (
+  <>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="text-center">
+          <img
+            src="./assets/images/notfound.svg"
+            alt="notfound-logo"
+            height="64"
+            width="64"
+          />
+          <p className="text-muted">No acticles was found!</p>
+        </div>
+      </div>
+    </div>
+  </>
+);
 
 export default SearchResultModal;

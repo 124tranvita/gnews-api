@@ -1,4 +1,5 @@
-import ListArticles from "./ListArticles";
+import ArticlesView from "./ArticlesView";
 import ControlledCarousel from "./ControlledCarousel";
+import ArticlesPage from "./ArticlesPage";
 
-export { ListArticles, ControlledCarousel };
+export { ArticlesView, ControlledCarousel, ArticlesPage };

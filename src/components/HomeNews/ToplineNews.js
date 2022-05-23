@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ControlledCarousel } from "../../../components/ShowArticles";
+import { ControlledCarousel } from "../ShowArticles";
 import styles from "./style/topline.module.css";
-import { fetchTopline } from "../../../services/actions/fetchTopline";
-import { Error } from "../../../components/Loader";
+import { fetchTopline } from "../../services/actions/fetchTopline";
+import { Error } from "../Loader";
 
 function ToplineNews() {
   const dispatch = useDispatch();

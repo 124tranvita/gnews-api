@@ -24,9 +24,7 @@
 .dropdownContent {
   display: none;
   position: absolute;
-  left: 0;
   right: 0;
-  margin: 0 auto;
   background-color: #212529;
   padding: 1rem 0.5rem;
   text-align: start;
@@ -37,9 +35,11 @@
   color: #fff;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .dropdownContent {
+    left: 0;
     right: 0;
+    margin: 0 auto;
   }
 }
 

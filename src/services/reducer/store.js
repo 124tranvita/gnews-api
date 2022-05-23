@@ -18,7 +18,7 @@ const store = createStore(
     topline: toplineReducer,
     politics: politicsReducer,
     sports: sportsReducer,
-    entertainments: entmtReducer,
+    entertainment: entmtReducer,
     latest: latestReducer,
     search: searchReducer,
     lang: changeLangReducer,

@@ -1,4 +1,5 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import Langauge from "../../components/Language";
 import Search from "../../components/Search";
 
@@ -7,25 +8,34 @@ function Header() {
     <>
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
         <Container>
-          <Navbar.Brand href="#home">
+          <NavLink className="nav-link" to="/">
             <img
               src="/assets/images/logo.svg"
               alt="logo"
               width="32"
               height="32"
             />
-          </Navbar.Brand>
+          </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">POLITICS</Nav.Link>
-              <Nav.Link href="#link">SPORTS</Nav.Link>
-              <Nav.Link href="#link">ENTERTAINMENT</Nav.Link>
+              <NavLink className="nav-link" to="/">
+                HOME
+              </NavLink>
+              <NavLink className="nav-link" to="/politics">
+                POLITICS
+              </NavLink>
+              <NavLink className="nav-link" to="/sports">
+                SPORTS
+              </NavLink>
+              <NavLink className="nav-link" to="/entertainment">
+                ENTERTAINMENT
+              </NavLink>
             </Nav>
-            <Nav className="text-md-end">
+            <Nav className="text-xl-end">
               <Search />
             </Nav>
-            <Nav className="text-md-end">
+            <Nav className="text-xl-end">
               <Langauge />
             </Nav>
           </Navbar.Collapse>

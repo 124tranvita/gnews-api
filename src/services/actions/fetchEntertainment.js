@@ -19,7 +19,7 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchEntertainments = (lang) => {
+export const fetchEntertainment = (lang) => {
   return (dispatch) => {
     dispatch(fetchData());
     fetchArticlesService("entertainments", lang)

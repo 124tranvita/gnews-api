@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Dropdown, Button, ButtonGroup, NavDropdown } from "react-bootstrap";
-import { Error } from "../../../components/Loader";
-import { fetchLatest } from "../../../services/actions/fetchLatest";
+import { NavDropdown } from "react-bootstrap";
+import { Error } from "../Loader";
+import { fetchLatest } from "../../services/actions/fetchLatest";
 import styles from "./style/latestNews.module.css";
 
 function LatestNews() {
@@ -64,7 +64,7 @@ function LatestNews() {
         </div>
       )}
 
-      {!error && !loading && articles.length != 0 && (
+      {!error && !loading && articles.length !== 0 && (
         <LeftPanel sliceArticles={sliceArticles} />
       )}
     </>

@@ -17,12 +17,12 @@ function ListArticles({ keyword, fetchData }) {
 
   useEffect(() => {
     dispatch(fetchData(lang));
-  }, [dispatch, fetchData, lang]);
+  }, [lang]);
 
   // Handle button click
   const handleClick = () => {
     if (button === "\u21C9") {
-      setView(articles.length);
+      setView(6);
       setButton("\u21CA");
     } else {
       setView(3);
@@ -65,7 +65,9 @@ function ListArticles({ keyword, fetchData }) {
         </div>
       )}
 
-      {articles.length != 0 && <ArticlesView articles={articles} view={view} />}
+      {!error && !loading && articles.length != 0 && (
+        <ArticlesView articles={articles} view={view} />
+      )}
     </>
   );
 }
@@ -115,4 +117,4 @@ const ArticlesView = ({ articles, view }) => {
   );
 };
 
-export default ListArticles;
+export default ArticlesView;
