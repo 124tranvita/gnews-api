@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Card } from "react-bootstrap";
-import styles from "./style/articlesShow.module.css";
+import styles from "./style/listArticles.module.css";
 import { Error } from "../Loader";
 
 function ListArticles({ keyword, fetchData }) {
@@ -51,7 +51,7 @@ function ListArticles({ keyword, fetchData }) {
         </div>
       )}
 
-      {error && (
+      {!loading && error && (
         <div className={styles.loadingPanel}>
           <Error error={error} />
         </div>
@@ -65,9 +65,7 @@ function ListArticles({ keyword, fetchData }) {
         </div>
       )}
 
-      {articles.length !== 0 && (
-        <ArticlesView articles={articles} view={view} />
-      )}
+      {articles.length != 0 && <ArticlesView articles={articles} view={view} />}
     </>
   );
 }

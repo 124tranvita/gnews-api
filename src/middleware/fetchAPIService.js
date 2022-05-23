@@ -43,11 +43,11 @@ export const fetchSearchArticlesService = (keyword, lang, from, to) => {
   });
 };
 
-export const fetchLatestArticlesService = (lang) => {
+export const fetchLatestArticlesService = (topic, lang) => {
   return new Promise((resolve, reject) => {
     axios
       .get(
-        `https://gnews.io/api/v4/topic?token=18463347e789cd1ef9b0580044a41bc56&lang=${lang}&from=${yesterday.toISOString()}&to=${today.toISOString()}`
+        `https://gnews.io/api/v4/top-headlines?topic=${topic}&token=8463347e789cd1ef9b0580044a41bc56&lang=${lang}&from=${yesterday.toISOString()}&to=${today.toISOString()}`
       )
       .then((response) => resolve(response.data.articles))
       .catch((error) => reject(error));

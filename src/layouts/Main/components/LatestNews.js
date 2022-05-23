@@ -1,14 +1,24 @@
 import { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Dropdown, Button, ButtonGroup, NavDropdown } from "react-bootstrap";
 import { Error } from "../../../components/Loader";
+import { fetchLatest } from "../../../services/actions/fetchLatest";
 import styles from "./style/latestNews.module.css";
 
 function LatestNews() {
+  const dispatch = useDispatch();
   const { loading, articles, error } = useSelector((state) => ({
-    loading: state.topline.loading,
-    articles: state.topline.articles,
-    error: state.topline.error,
+    loading: state.latest.loading,
+    articles: state.latest.articles,
+    error: state.latest.error,
   }));
+  const lang = useSelector((state) => state.lang);
+
+  const [topic, setTopic] = useState("world");
+
+  useEffect(() => {
+    dispatch(fetchLatest(topic, lang));
+  }, [dispatch, topic, lang]);
 
   const sliceArticles = articles.slice(0, 4);
 
@@ -17,9 +27,28 @@ function LatestNews() {
       <div className={styles.captionWrapper}>
         <div className={styles.caption}>
           <h4>Latest</h4>
-          <button id="politics" className={styles.btnNews} name="politics">
+          {/* <button id="politics" className={styles.btnNews} name="politics">
             <p>&#9776;</p>
-          </button>
+          </button> */}
+          <NavDropdown
+            id={styles.topicDropdown}
+            title={`Topic ${topic}`}
+            menuVariant="dark"
+            onSelect={(eventKey) => setTopic(eventKey)}
+          >
+            <NavDropdown.Item eventKey="world">World</NavDropdown.Item>
+            <NavDropdown.Item eventKey="nation">Nation</NavDropdown.Item>
+            <NavDropdown.Item eventKey="business">Business</NavDropdown.Item>
+            <NavDropdown.Item eventKey="technology">
+              Technology
+            </NavDropdown.Item>
+            <NavDropdown.Item eventKey="entertainment">
+              Entertainment
+            </NavDropdown.Item>
+            <NavDropdown.Item eventKey="sports">Sports</NavDropdown.Item>
+            <NavDropdown.Item eventKey="science">Science</NavDropdown.Item>
+            <NavDropdown.Item eventKey="health">Health</NavDropdown.Item>
+          </NavDropdown>
         </div>
       </div>
 
@@ -29,13 +58,15 @@ function LatestNews() {
         </div>
       )}
 
-      {error && (
+      {!loading && error && (
         <div className={styles.loadingPanel}>
           <Error error={error} />
         </div>
       )}
 
-      {articles.length !== 0 && <LeftPanel sliceArticles={sliceArticles} />}
+      {!error && !loading && articles.length != 0 && (
+        <LeftPanel sliceArticles={sliceArticles} />
+      )}
     </>
   );
 }
@@ -85,13 +116,7 @@ const LeftPanel = ({ sliceArticles }) => {
               {sliceArticles.map((article, index) => {
                 return (
                   <li key={index} onClick={() => setItem(article)}>
-                    <img
-                      className="d-block w-100"
-                      src={article.image}
-                      alt={article.title}
-                      width="32"
-                      height="96"
-                    />
+                    <img src={article.image} alt={article.title} />
                   </li>
                 );
               })}
@@ -117,7 +142,9 @@ const RightPanel = ({ item }) => {
           height="460"
         />
         <div className={styles.newsCaption}>
-          <h3>{item.title}</h3>
+          <a href={item.source.url}>
+            <h3>{item.title}</h3>
+          </a>
           <p>{item.description}</p>
           <span>{item.publishedAt}</span> | <span>{item.source.name}</span>
         </div>
