@@ -2,13 +2,13 @@ import { useState, useRef } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import SearchResultModal from "./SearchResultModal";
-import styles from "../style/search.module.css";
-import { showResultModal, fetchSearch } from "../actions/fetchSearch";
+import styles from "./style/search.module.css";
+import { showResultModal, fetchSearch } from "../../actions/fetchSearch";
 
 function Search() {
   const dispatch = useDispatch();
-  const show = useSelector(state => state.search.show);
-  const lang = useSelector(state => state.lang);
+  const show = useSelector((state) => state.search.show);
+  const lang = useSelector((state) => state.lang);
 
   const [keyword, setKeyword] = useState("");
   const [from, setFrom] = useState("");
@@ -22,20 +22,23 @@ function Search() {
     } else {
       dropdownContent.current.style.display = "none";
     }
-  }
+  };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     dispatch(fetchSearch(keyword, lang, from, to));
     dispatch(showResultModal());
     dropdownContent.current.style.display = "none";
-  }
+    e.preventDefault();
+  };
 
   return (
     <>
       <div className={styles.dropdown}>
-        <button className={styles.dropbtn} onClick={handleOpenSearchPanel}>&#8981;</button>
+        <button className={styles.dropbtn} onClick={handleOpenSearchPanel}>
+          &#8981;
+        </button>
         <div className={styles.dropdownContent} ref={dropdownContent}>
-          <Form validated onSubmit={handleSubmit}>
+          <Form validated onSubmit={(e) => handleSubmit(e)}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Search for</Form.Label>
               <Form.Control
@@ -51,11 +54,17 @@ function Search() {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>From</Form.Label>
-              <Form.Control type="date" onChange={(e) => setFrom(e.target.value)} />
+              <Form.Control
+                type="date"
+                onChange={(e) => setFrom(e.target.value)}
+              />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>To</Form.Label>
-              <Form.Control type="date" onChange={(e) => setTo(e.target.value)} />
+              <Form.Control
+                type="date"
+                onChange={(e) => setTo(e.target.value)}
+              />
             </Form.Group>
             <Button variant="primary" type="submit">
               Go
@@ -64,9 +73,9 @@ function Search() {
         </div>
       </div>
 
-      {show && (<SearchResultModal keyword={keyword} />)}
+      {show && <SearchResultModal keyword={keyword} />}
     </>
-  )
+  );
 }
 
 export default Search;

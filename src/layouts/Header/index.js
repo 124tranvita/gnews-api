@@ -1,6 +1,6 @@
-import { Container, Navbar, Nav } from 'react-bootstrap';
-import Langauge from './Language';
-import Search from './Search';
+import { Container, Navbar, Nav } from "react-bootstrap";
+import Langauge from "../../components/Language";
+import Search from "../../components/Search";
 
 function Header() {
   return (
@@ -32,7 +32,7 @@ function Header() {
         </Container>
       </Navbar>
     </>
-  )
+  );
 }
 
 export default Header;

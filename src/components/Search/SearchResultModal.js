@@ -1,17 +1,17 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Modal, Button, Card } from "react-bootstrap";
-import { closeResultModal } from "../actions/fetchSearch";
-import Loader from "./Loader";
+import { closeResultModal } from "../../actions/fetchSearch";
+import Loader from "../Loader";
 
 function SearchResultModal({ keyword }) {
   const dispatch = useDispatch();
 
-  const { loading, articles, error, show } = useSelector(state => ({
+  const { loading, articles, error, show } = useSelector((state) => ({
     loading: state.search.loading,
     articles: state.search.articles,
     error: state.search.error,
-    show: state.search.show
-  }))
+    show: state.search.show,
+  }));
 
   const handleClose = () => dispatch(closeResultModal());
 
@@ -22,8 +22,8 @@ function SearchResultModal({ keyword }) {
           <Modal.Title>Result for "{keyword}"</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {loading && (<Loader />)}
-          {error && (<div>{error.message}</div>)}
+          {loading && <Loader />}
+          {error && <div>{error.message}</div>}
           {articles.length !== 0 && (
             <div className="row">
               {articles.map((article, index) => (
@@ -36,12 +36,15 @@ function SearchResultModal({ keyword }) {
                       height="270"
                     />
                     <Card.ImgOverlay>
-                      <Card.Title><a href={article.source.url}>{article.title}</a></Card.Title>
+                      <Card.Title>
+                        <a href={article.source.url}>{article.title}</a>
+                      </Card.Title>
                       <Card.Text>
                         <p>{article.description}</p>
                       </Card.Text>
                       <Card.Text>
-                        <span>{article.publishedAt}</span> | <span>{article.source.name}</span>
+                        <span>{article.publishedAt}</span> |{" "}
+                        <span>{article.source.name}</span>
                       </Card.Text>
                     </Card.ImgOverlay>
                   </Card>

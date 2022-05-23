@@ -1,0 +1,9 @@
+#email {
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
+
+#subscribeModal {
+  max-width: 500px;
+  text-align: center;
+}
