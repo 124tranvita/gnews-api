@@ -2,12 +2,14 @@ import {
   FETCH_LATEST,
   FETCH_LATEST_SUCCESS,
   FETCH_LATEST_FAILED,
+  CHANGE_LATEST_TOPIC,
 } from "../actions/constants";
 
 const initState = {
   loading: false,
   articles: [],
   error: null,
+  topic: "world",
 };
 
 const latestReducer = (state = initState, action) => {
@@ -28,6 +30,11 @@ const latestReducer = (state = initState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case CHANGE_LATEST_TOPIC:
+      return {
+        ...state,
+        topic: action.payload,
       };
     default:
       return state;

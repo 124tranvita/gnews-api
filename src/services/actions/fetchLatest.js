@@ -2,6 +2,7 @@ import {
   FETCH_LATEST,
   FETCH_LATEST_SUCCESS,
   FETCH_LATEST_FAILED,
+  CHANGE_LATEST_TOPIC,
 } from "./constants";
 import { fetchLatestArticlesService } from "../../middleware";
 
@@ -27,3 +28,8 @@ export const fetchLatest = (topic, lang) => {
       .catch((error) => dispatch(fetchDataFailed(error)));
   };
 };
+
+export const changeLatestTopic = (topic) => ({
+  type: CHANGE_LATEST_TOPIC,
+  payload: topic,
+});

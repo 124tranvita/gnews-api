@@ -2,23 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavDropdown } from "react-bootstrap";
 import { Error } from "../Loader";
-import { fetchLatest } from "../../services/actions/fetchLatest";
+import { changeLatestTopic } from "../../services/actions/fetchLatest";
 import styles from "./style/latestNews.module.css";
 
 function LatestNews() {
   const dispatch = useDispatch();
-  const { loading, articles, error } = useSelector((state) => ({
+  const { loading, articles, error, topic } = useSelector((state) => ({
     loading: state.latest.loading,
     articles: state.latest.articles,
     error: state.latest.error,
+    topic: state.latest.topic,
   }));
-  const lang = useSelector((state) => state.lang);
-
-  const [topic, setTopic] = useState("world");
-
-  useEffect(() => {
-    dispatch(fetchLatest(topic, lang));
-  }, [dispatch, topic, lang]);
 
   const sliceArticles = articles.slice(0, 4);
 
@@ -34,7 +28,7 @@ function LatestNews() {
             id={styles.topicDropdown}
             title={`Topic ${topic}`}
             menuVariant="dark"
-            onSelect={(eventKey) => setTopic(eventKey)}
+            onSelect={(eventKey) => dispatch(changeLatestTopic(eventKey))}
           >
             <NavDropdown.Item eventKey="world">World</NavDropdown.Item>
             <NavDropdown.Item eventKey="nation">Nation</NavDropdown.Item>

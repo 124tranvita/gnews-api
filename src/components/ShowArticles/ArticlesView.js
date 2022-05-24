@@ -1,23 +1,17 @@
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Card } from "react-bootstrap";
-import styles from "./style/listArticles.module.css";
+import styles from "./style/articlesView.module.css";
 import { Error } from "../Loader";
 
-function ListArticles({ keyword, fetchData }) {
+function ArticlesView({ keyword }) {
   const [view, setView] = useState(3);
   const [button, setButton] = useState("\u21C9");
-  const dispatch = useDispatch();
   const { loading, articles, error } = useSelector((state) => ({
     loading: state[keyword].loading,
     articles: state[keyword].articles,
     error: state[keyword].error,
   }));
-  const lang = useSelector((state) => state.lang);
-
-  useEffect(() => {
-    dispatch(fetchData(lang));
-  }, [lang]);
 
   // Handle button click
   const handleClick = () => {
@@ -66,13 +60,13 @@ function ListArticles({ keyword, fetchData }) {
       )}
 
       {!error && !loading && articles.length != 0 && (
-        <ArticlesView articles={articles} view={view} />
+        <ArticlesList articles={articles} view={view} />
       )}
     </>
   );
 }
 
-const ArticlesView = ({ articles, view }) => {
+const ArticlesList = ({ articles, view }) => {
   const sliceArticles = articles.slice(0, view);
 
   return (

@@ -1,53 +1,66 @@
-import React, { Suspense } from "react";
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Loader } from "../../components/Loader";
-import ToplineNews from "../../components/HomeNews/ToplineNews";
-import PoliticsPage from "./PoliticsPage";
-import SportsPage from "./SportsPage";
-import EntertainmentPage from "./EntertainmentPage";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  ToplineNews,
+  LatestNews,
+  PoliticsNews,
+  SportsNews,
+  EntertainmentNews,
+  PoliticsPage,
+  SportsPage,
+  EntertainmentPage,
+} from "../../components/News";
 
-const LatestNews = React.lazy(() => {
-  return new Promise((resolve) => setTimeout(resolve, 2 * 1000)).then(() =>
-    import("../../components/HomeNews/LatestNews")
-  );
-});
-
-const PoliticsNews = React.lazy(() => {
-  return new Promise((resolve) => setTimeout(resolve, 4 * 1000)).then(() =>
-    import("../../components/HomeNews/PoliticsNews")
-  );
-});
-
-const SportsNews = React.lazy(() => {
-  return new Promise((resolve) => setTimeout(resolve, 6 * 1000)).then(() =>
-    import("../../components/HomeNews/SportsNews")
-  );
-});
-
-const EntertainmentsNews = React.lazy(() => {
-  return new Promise((resolve) => setTimeout(resolve, 8 * 1000)).then(() =>
-    import("../../components/HomeNews/EntertainmentNews")
-  );
-});
+import {
+  fetchLatest,
+  fetchPolitics,
+  fetchSports,
+  fetchEntertainment,
+} from "../../services/actions";
 
 const HomePage = () => (
   <>
-    <Suspense fallback={<Loader />}>
-      <LatestNews />
-    </Suspense>
-    <Suspense fallback={<Loader />}>
-      <PoliticsNews />
-    </Suspense>
-    <Suspense fallback={<Loader />}>
-      <SportsNews />
-    </Suspense>
-    <Suspense fallback={<Loader />}>
-      <EntertainmentsNews />
-    </Suspense>
+    <LatestNews />
+    <PoliticsNews />
+    <SportsNews />
+    <EntertainmentNews />
   </>
 );
 
 function Main() {
+  const dispatch = useDispatch();
+  const lang = useSelector((state) => state.lang);
+  const topic = useSelector((state) => state.latest.topic);
+
+  // Fetch Latest News
+  useEffect(() => {
+    const timer = setTimeout(() => dispatch(fetchLatest(topic, lang)), 1000);
+    // Cleanup function
+    return () => clearTimeout(timer);
+  }, [topic, lang]);
+
+  // Fetch Politics News
+  useEffect(() => {
+    const timer = setTimeout(() => dispatch(fetchPolitics(lang)), 2500);
+    // Cleanup function
+    return () => clearTimeout(timer);
+  }, [lang]);
+
+  // Fetch Sports News
+  useEffect(() => {
+    const timer = setTimeout(() => dispatch(fetchSports(lang)), 3500);
+    // Cleanup function
+    return () => clearTimeout(timer);
+  }, [lang]);
+
+  // Fetch Entertainment News
+  useEffect(() => {
+    const timer = setTimeout(() => dispatch(fetchEntertainment(lang)), 4500);
+    // Cleanup function
+    return () => clearTimeout(timer);
+  }, [lang]);
+
   return (
     <>
       <ToplineNews />

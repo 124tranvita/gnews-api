@@ -1,29 +1,15 @@
-import { useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import LazyLoad from "react-lazy-load";
 import { Card } from "react-bootstrap";
-import styles from "./style/listArticles.module.css";
+import styles from "./style/articlesView.module.css";
 import { Error } from "../Loader";
 
-function ArticlesPage({ keyword, fetchData }) {
-  const dispatch = useDispatch();
+function ArticlesPage({ keyword }) {
   const { loading, articles, error } = useSelector((state) => ({
     loading: state[keyword].loading,
     articles: state[keyword].articles,
     error: state[keyword].error,
   }));
-  const lang = useSelector((state) => state.lang);
-
-  // Prevent useEffect on initial render
-  const didMount = useRef(false);
-
-  useEffect(() => {
-    if (didMount.current) {
-      dispatch(fetchData(lang));
-    } else {
-      didMount.current = true;
-    }
-  }, [lang]);
 
   return (
     <>
