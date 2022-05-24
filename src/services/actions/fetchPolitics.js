@@ -19,10 +19,10 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchPolitics = (lang) => {
+export const fetchPolitics = (lang, token) => {
   return (dispatch) => {
     dispatch(fetchData());
-    fetchArticlesService("politics", lang)
+    fetchArticlesService("politics", lang, token)
       .then((articles) => dispatch(fetchDataSuccess(articles)))
       .catch((error) => dispatch(fetchDataFailed(error)));
   };

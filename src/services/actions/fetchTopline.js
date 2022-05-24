@@ -19,10 +19,10 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchTopline = (lang) => {
+export const fetchTopline = (lang, token) => {
   return (dispatch) => {
     dispatch(fetchData());
-    fetchToplineService(lang)
+    fetchToplineService(lang, token)
       .then((articles) => dispatch(fetchDataSuccess(articles)))
       .catch((error) => dispatch(fetchDataFailed(error)));
   };

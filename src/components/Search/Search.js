@@ -12,6 +12,7 @@ function Search() {
   const dispatch = useDispatch();
   const show = useSelector((state) => state.search.show);
   const lang = useSelector((state) => state.lang);
+  const token = useSelector((state) => state.token);
 
   const [keyword, setKeyword] = useState("");
   const [from, setFrom] = useState("");
@@ -32,7 +33,7 @@ function Search() {
   };
 
   const handleSubmit = (e) => {
-    dispatch(fetchSearch(keyword, lang, from, to));
+    dispatch(fetchSearch(keyword, lang, from, to, token));
     dispatch(showResultModal());
     dropdownContent.current.style.display = "none";
     e.preventDefault();

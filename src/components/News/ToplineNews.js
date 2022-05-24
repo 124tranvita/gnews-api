@@ -13,10 +13,11 @@ function ToplineNews() {
     error: state.topline.error,
   }));
   const lang = useSelector((state) => state.lang);
+  const token = useSelector((state) => state.token);
 
   useEffect(() => {
-    dispatch(fetchTopline(lang));
-  }, [dispatch, lang]);
+    dispatch(fetchTopline(lang, token));
+  }, [dispatch, lang, token]);
 
   if (loading) {
     return (

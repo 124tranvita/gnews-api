@@ -22,6 +22,7 @@ const sportsReducer = (state = initState, action) => {
         ...state,
         loading: false,
         articles: action.payload,
+        error: null,
       };
     case FETCH_SPORTS_FAILED:
       return {

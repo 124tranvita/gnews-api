@@ -8,12 +8,10 @@ yesterday.setDate(yesterday.getDate() - 1);
 //console.log("Today is: ", today.toISOString());
 //console.log("Yesterday is: ", yesterday.toISOString());
 
-export const fetchToplineService = (lang) => {
+export const fetchToplineService = (lang, token) => {
   return new Promise((resolve, reject) => {
     axios
-      .get(
-        `https://gnews.io/api/v4/top-headlines?token=c539d252c8d0a7349c82e59ba7012c7a&lang=${lang}`
-      )
+      .get(`https://gnews.io/api/v4/top-headlines?token=${token}&lang=${lang}`)
       .then((response) => {
         resolve(response.data.articles);
       })
@@ -21,33 +19,33 @@ export const fetchToplineService = (lang) => {
   });
 };
 
-export const fetchArticlesService = (keyword, lang) => {
+export const fetchArticlesService = (keyword, lang, token) => {
   return new Promise((resolve, reject) => {
     axios
       .get(
-        `https://gnews.io/api/v4/search?q=${keyword}&token=c539d252c8d0a7349c82e59ba7012c7a&lang=${lang}`
+        `https://gnews.io/api/v4/search?q=${keyword}&token=${token}&lang=${lang}`
       )
       .then((response) => resolve(response.data.articles))
       .catch((error) => reject(error));
   });
 };
 
-export const fetchSearchArticlesService = (keyword, lang, from, to) => {
+export const fetchSearchArticlesService = (keyword, lang, from, to, token) => {
   return new Promise((resolve, reject) => {
     axios
       .get(
-        `https://gnews.io/api/v4/search?q=${keyword}&token=c539d252c8d0a7349c82e59ba7012c7a&lang=${lang}&from=${from}T00:00:00Z&to=${to}T00:00:00Z`
+        `https://gnews.io/api/v4/search?q=${keyword}&token=${token}&lang=${lang}&from=${from}T00:00:00Z&to=${to}T00:00:00Z`
       )
       .then((response) => resolve(response.data.articles))
       .catch((error) => reject(error));
   });
 };
 
-export const fetchLatestArticlesService = (topic, lang) => {
+export const fetchLatestArticlesService = (topic, lang, token) => {
   return new Promise((resolve, reject) => {
     axios
       .get(
-        `https://gnews.io/api/v4/top-headlines?topic=${topic}&token=c539d252c8d0a7349c82e59ba7012c7a&lang=${lang}&from=${yesterday.toISOString()}&to=${today.toISOString()}`
+        `https://gnews.io/api/v4/top-headlines?topic=${topic}&token=${token}&lang=${lang}&from=${yesterday.toISOString()}&to=${today.toISOString()}`
       )
       .then((response) => resolve(response.data.articles))
       .catch((error) => reject(error));

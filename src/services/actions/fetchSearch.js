@@ -21,10 +21,10 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchSearch = (keyword, lang, from, to) => {
+export const fetchSearch = (keyword, lang, from, to, token) => {
   return (dispatch) => {
     dispatch(fetchData());
-    fetchSearchArticlesService(keyword, lang, from, to)
+    fetchSearchArticlesService(keyword, lang, from, to, token)
       .then((articles) => dispatch(fetchDataSuccess(articles)))
       .catch((error) => dispatch(fetchDataFailed(error)));
   };

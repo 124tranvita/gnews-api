@@ -22,6 +22,7 @@ const politicsReducer = (state = initState, action) => {
         ...state,
         loading: false,
         articles: action.payload,
+        error: null,
       };
     case FETCH_POLITICS_FAILED:
       return {

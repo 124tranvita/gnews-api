@@ -12,6 +12,7 @@ import entertainmentReducer from "./entertainment";
 import latestReducer from "./latest";
 import changeLangReducer from "./language";
 import searchReducer from "./search";
+import setTokenReducer from "./token";
 
 const store = createStore(
   combineReducers({
@@ -22,11 +23,14 @@ const store = createStore(
     latest: latestReducer,
     search: searchReducer,
     lang: changeLangReducer,
+    token: setTokenReducer,
   }),
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  applyMiddleware(thunk)
 );
 
 export default store;
+
+// compose(
+//   applyMiddleware(thunk),
+//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// )

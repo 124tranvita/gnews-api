@@ -2,6 +2,7 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import Langauge from "../../components/Language";
 import Search from "../../components/Search";
+import Token from "../../components/Token";
 
 function Header() {
   return (
@@ -10,7 +11,7 @@ function Header() {
         <Container>
           <NavLink className="nav-link" to="/">
             <img
-              src="/assets/images/logo.svg"
+              src="gnews-api/assets/images/logo.svg"
               alt="logo"
               width="32"
               height="32"
@@ -37,6 +38,9 @@ function Header() {
             </Nav>
             <Nav className="text-xl-end">
               <Langauge />
+            </Nav>
+            <Nav className="text-xl-end">
+              <Token />
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -9,7 +9,7 @@ function Error({ error }) {
           <div className="row">
             <div className="col-12 text-center">
               <img
-                src="./assets/images/problem.svg"
+                src="gnews-api/assets/images/problem.svg"
                 alt="problem"
                 width="64"
                 height="64"

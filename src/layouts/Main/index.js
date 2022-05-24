@@ -32,34 +32,41 @@ function Main() {
   const dispatch = useDispatch();
   const lang = useSelector((state) => state.lang);
   const topic = useSelector((state) => state.latest.topic);
+  const token = useSelector((state) => state.token);
 
   // Fetch Latest News
   useEffect(() => {
-    const timer = setTimeout(() => dispatch(fetchLatest(topic, lang)), 1000);
+    const timer = setTimeout(
+      () => dispatch(fetchLatest(topic, lang, token)),
+      1000
+    );
     // Cleanup function
     return () => clearTimeout(timer);
-  }, [topic, lang]);
+  }, [dispatch, topic, lang, token]);
 
   // Fetch Politics News
   useEffect(() => {
-    const timer = setTimeout(() => dispatch(fetchPolitics(lang)), 2500);
+    const timer = setTimeout(() => dispatch(fetchPolitics(lang, token)), 2500);
     // Cleanup function
     return () => clearTimeout(timer);
-  }, [lang]);
+  }, [dispatch, lang, token]);
 
   // Fetch Sports News
   useEffect(() => {
-    const timer = setTimeout(() => dispatch(fetchSports(lang)), 3500);
+    const timer = setTimeout(() => dispatch(fetchSports(lang, token)), 4500);
     // Cleanup function
     return () => clearTimeout(timer);
-  }, [lang]);
+  }, [dispatch, lang, token]);
 
   // Fetch Entertainment News
   useEffect(() => {
-    const timer = setTimeout(() => dispatch(fetchEntertainment(lang)), 4500);
+    const timer = setTimeout(
+      () => dispatch(fetchEntertainment(lang, token)),
+      6500
+    );
     // Cleanup function
     return () => clearTimeout(timer);
-  }, [lang]);
+  }, [dispatch, lang, token]);
 
   return (
     <>

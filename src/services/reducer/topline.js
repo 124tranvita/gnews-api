@@ -22,6 +22,7 @@ const toplineReducer = (state = initState, action) => {
         ...state,
         loading: false,
         articles: action.payload,
+        error: null,
       };
     case FETCH_TOPLINE_FAILED:
       return {

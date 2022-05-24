@@ -57,7 +57,7 @@ function Subscribe() {
           <h4>{email}</h4>
           <p className="text-muted">Thank for your subscribe!</p>
           <Image
-            src="./assets/images/present.svg"
+            src="gnews-api/assets/images/present.svg"
             alt="subscribe-icon"
             width="64"
             height="64"

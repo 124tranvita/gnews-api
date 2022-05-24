@@ -1,44 +1,51 @@
-import { FETCH_SEARCH, FETCH_SEARCH_SUCCESS, FETCH_SEARCH_FAILED, SHOW_RESULT_MODAL, CLOSE_RESULT_MODAL } from "../actions/constants";
+import {
+  FETCH_SEARCH,
+  FETCH_SEARCH_SUCCESS,
+  FETCH_SEARCH_FAILED,
+  SHOW_RESULT_MODAL,
+  CLOSE_RESULT_MODAL,
+} from "../actions/constants";
 
 const initState = {
   loading: false,
   articles: [],
   error: null,
-  show: false
-}
+  show: false,
+};
 
 const searchReducer = (state = initState, action) => {
   switch (action.type) {
     case FETCH_SEARCH:
-      return ({
+      return {
         ...state,
-        loading: true
-      });
+        loading: true,
+      };
     case FETCH_SEARCH_SUCCESS:
-      return ({
+      return {
         ...state,
         loading: false,
-        articles: action.payload
-      });
+        articles: action.payload,
+        error: null,
+      };
     case FETCH_SEARCH_FAILED:
-      return ({
+      return {
         ...state,
         loading: false,
-        error: action.payload
-      });
+        error: action.payload,
+      };
     case SHOW_RESULT_MODAL:
-      return ({
+      return {
         ...state,
-        show: true
-      });
+        show: true,
+      };
     case CLOSE_RESULT_MODAL:
-      return ({
+      return {
         ...state,
-        show: false
-      });
+        show: false,
+      };
     default:
       return state;
   }
-}
+};
 
 export default searchReducer;
