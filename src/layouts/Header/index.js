@@ -11,7 +11,7 @@ function Header() {
         <Container>
           <NavLink className="nav-link" to="/">
             <img
-              src="gnews-api/assets/images/logo.svg"
+              src="assets/images/logo.svg"
               alt="logo"
               width="32"
               height="32"

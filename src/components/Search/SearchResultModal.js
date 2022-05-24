@@ -74,7 +74,7 @@ const NotFound = () => (
       <div className="row">
         <div className="text-center">
           <img
-            src="gnews-api/assets/images/notfound.svg"
+            src="assets/images/notfound.svg"
             alt="notfound-logo"
             height="64"
             width="64"
