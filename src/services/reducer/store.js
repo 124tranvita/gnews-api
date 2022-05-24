@@ -8,7 +8,7 @@ import thunk from "redux-thunk";
 import toplineReducer from "./topline";
 import politicsReducer from "./politics";
 import sportsReducer from "./sports";
-import entmtReducer from "./entmts";
+import entertainmentReducer from "./entertainment";
 import latestReducer from "./latest";
 import changeLangReducer from "./language";
 import searchReducer from "./search";
@@ -18,7 +18,7 @@ const store = createStore(
     topline: toplineReducer,
     politics: politicsReducer,
     sports: sportsReducer,
-    entertainment: entmtReducer,
+    entertainment: entertainmentReducer,
     latest: latestReducer,
     search: searchReducer,
     lang: changeLangReducer,

@@ -1,7 +1,7 @@
 import {
-  FETCH_POLITICS,
-  FETCH_POLITICS_SUCCESS,
-  FETCH_POLITICS_FAILED,
+  FETCH_ENTMT,
+  FETCH_ENTMT_SUCCESS,
+  FETCH_ENTMT_FAILED,
 } from "../actions/constants";
 
 const initState = {
@@ -10,20 +10,20 @@ const initState = {
   error: null,
 };
 
-const politicsReducer = (state = initState, action) => {
+const entertainmentReducer = (state = initState, action) => {
   switch (action.type) {
-    case FETCH_POLITICS:
+    case FETCH_ENTMT:
       return {
         ...state,
         loading: true,
       };
-    case FETCH_POLITICS_SUCCESS:
+    case FETCH_ENTMT_SUCCESS:
       return {
         ...state,
         loading: false,
         articles: action.payload,
       };
-    case FETCH_POLITICS_FAILED:
+    case FETCH_ENTMT_FAILED:
       return {
         ...state,
         loading: false,
@@ -34,4 +34,4 @@ const politicsReducer = (state = initState, action) => {
   }
 };
 
-export default politicsReducer;
+export default entertainmentReducer;

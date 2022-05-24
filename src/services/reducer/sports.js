@@ -1,33 +1,37 @@
-import { FETCH_SPORTS, FETCH_SPORTS_SUCCESS, FETCH_SPORTS_FAILED } from "../actions/constants";
+import {
+  FETCH_SPORTS,
+  FETCH_SPORTS_SUCCESS,
+  FETCH_SPORTS_FAILED,
+} from "../actions/constants";
 
 const initState = {
   loading: false,
   articles: [],
-  error: null
-}
+  error: null,
+};
 
 const sportsReducer = (state = initState, action) => {
   switch (action.type) {
     case FETCH_SPORTS:
-      return ({
+      return {
         ...state,
-        loading: true
-      })
+        loading: true,
+      };
     case FETCH_SPORTS_SUCCESS:
-      return ({
+      return {
         ...state,
         loading: false,
-        articles: action.payload
-      })
+        articles: action.payload,
+      };
     case FETCH_SPORTS_FAILED:
-      return ({
+      return {
         ...state,
         loading: false,
-        error: action.payload
-      })
+        error: action.payload,
+      };
     default:
       return state;
   }
-}
+};
 
 export default sportsReducer;

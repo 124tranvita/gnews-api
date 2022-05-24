@@ -2,7 +2,7 @@ import {
   FETCH_POLITICS,
   FETCH_POLITICS_SUCCESS,
   FETCH_POLITICS_FAILED,
-} from "../actions/constants";
+} from "./constants";
 import { fetchArticlesService } from "../../middleware";
 
 const fetchData = () => ({
