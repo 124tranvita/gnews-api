@@ -59,7 +59,7 @@ function ArticlesView({ keyword }) {
         </div>
       )}
 
-      {!error && !loading && articles.length != 0 && (
+      {!error && !loading && articles.length !== 0 && (
         <ArticlesList articles={articles} view={view} />
       )}
     </>
