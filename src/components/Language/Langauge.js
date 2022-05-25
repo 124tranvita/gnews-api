@@ -8,7 +8,7 @@ function Langauge() {
     lang: "EN",
     flag: "gb-eng",
   });
-  console.log(dropdownTitle);
+
   const dispatch = useDispatch();
 
   const Title = () => {

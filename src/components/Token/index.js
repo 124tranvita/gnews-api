@@ -8,7 +8,6 @@ function Token() {
   const token = useSelector((state) => state.token);
   const [title, setTitle] = useState("Token #1");
 
-  console.log(token);
   const handleSelect = (eventKey) => {
     dispatch(setToken(eventKey));
   };
