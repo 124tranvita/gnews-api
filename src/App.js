@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "flag-icons";
-import "./App.css";
 import Header from "./layouts/Header";
 import Footer from "./layouts/Footer";
 import Main from "./layouts/Main";

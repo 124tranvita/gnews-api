@@ -1,0 +1,23 @@
+.captionWrapper {
+  padding: 1rem 0;
+}
+
+.caption {
+  display: flex;
+  justify-content: space-between;
+  color: #212529;
+  border-bottom: 1px solid #212529;
+  padding: 0 1rem;
+}
+
+.btnNews {
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: #212529;
+  font-size: large;
+  font-weight: 600;
+}
+
+.btnNews:hover {
+  cursor: pointer;
+}

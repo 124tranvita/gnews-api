@@ -1,17 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { HashRouter } from "react-router-dom";
 import store from "./services/reducer/store";
+import { HashRouter } from "react-router-dom";
+import GlobalStyles from "./components/GlobalStyles";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <HashRouter>
     <Provider store={store}>
-      <App />
+      <GlobalStyles>
+        <App />
+      </GlobalStyles>
     </Provider>
   </HashRouter>
 );
