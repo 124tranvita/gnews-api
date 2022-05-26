@@ -1,9 +1,5 @@
-import {
-  FETCH_ENTMT,
-  FETCH_ENTMT_SUCCESS,
-  FETCH_ENTMT_FAILED,
-} from "./constants";
-import { fetchArticlesService } from "../../middleware";
+import { FETCH_ENTMT, FETCH_ENTMT_SUCCESS, FETCH_ENTMT_FAILED } from './constants';
+import { fetchArticlesService } from '../../utils/fetchAPIService';
 
 const fetchData = () => ({
   type: FETCH_ENTMT,
@@ -19,10 +15,10 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchEntertainment = (lang, token) => {
+export const fetchEntertainment = (token, lang) => {
   return (dispatch) => {
     dispatch(fetchData());
-    fetchArticlesService("entertainments", lang, token)
+    fetchArticlesService(token, lang, 'entertainments')
       .then((articles) => dispatch(fetchDataSuccess(articles)))
       .catch((error) => dispatch(fetchDataFailed(error)));
   };

@@ -1,8 +1,4 @@
-import {
-  FETCH_POLITICS,
-  FETCH_POLITICS_SUCCESS,
-  FETCH_POLITICS_FAILED,
-} from "../actions/constants";
+import { FETCH_POLITICS, FETCH_POLITICS_SUCCESS, FETCH_POLITICS_FAILED } from '../actions/constants';
 
 const initState = {
   loading: false,

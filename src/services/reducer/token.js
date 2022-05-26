@@ -1,6 +1,6 @@
-import { SET_TOKEN } from "../actions/constants";
+import { SET_TOKEN } from '../actions/constants';
 
-const initState = "c539d252c8d0a7349c82e59ba7012c7a";
+const initState = '1c539d252c8d0a7349c82e59ba7012c7a';
 
 const setTokenReducer = (state = initState, action) => {
   switch (action.type) {

@@ -1,16 +1,16 @@
-import Header from "./components/Header";
-import Carousel from "./components/Carousel";
-import Footer from "./components/Footer";
+import Header from './components/Header';
+import Toplines from './components/Toplines';
+import Footer from './components/Footer';
 
 function Layout({ children }) {
   return (
     <div className="wrapper">
+      <Header />
       <div className="main-container">
-        <Header />
-        <Carousel />
+        <Toplines />
         {children}
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

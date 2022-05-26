@@ -1,9 +1,5 @@
-import {
-  FETCH_SPORTS,
-  FETCH_SPORTS_SUCCESS,
-  FETCH_SPORTS_FAILED,
-} from "../actions/constants";
-import { fetchArticlesService } from "../../middleware";
+import { FETCH_SPORTS, FETCH_SPORTS_SUCCESS, FETCH_SPORTS_FAILED } from '../actions/constants';
+import { fetchArticlesService } from '../../utils/fetchAPIService';
 
 const fetchData = () => ({
   type: FETCH_SPORTS,
@@ -19,10 +15,10 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchSports = (lang, token) => {
+export const fetchSports = (token, lang) => {
   return (dispatch) => {
     dispatch(fetchData());
-    fetchArticlesService("sport", lang, token)
+    fetchArticlesService(token, lang, 'sport')
       .then((articles) => dispatch(fetchDataSuccess(articles)))
       .catch((error) => dispatch(fetchDataFailed(error)));
   };

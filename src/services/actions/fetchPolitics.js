@@ -1,9 +1,5 @@
-import {
-  FETCH_POLITICS,
-  FETCH_POLITICS_SUCCESS,
-  FETCH_POLITICS_FAILED,
-} from "./constants";
-import { fetchArticlesService } from "../../middleware";
+import { FETCH_POLITICS, FETCH_POLITICS_SUCCESS, FETCH_POLITICS_FAILED } from './constants';
+import { fetchArticlesService } from '../../utils/fetchAPIService';
 
 const fetchData = () => ({
   type: FETCH_POLITICS,
@@ -19,10 +15,10 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchPolitics = (lang, token) => {
+export const fetchPolitics = (token, lang) => {
   return (dispatch) => {
     dispatch(fetchData());
-    fetchArticlesService("politics", lang, token)
+    fetchArticlesService(token, lang, 'politics')
       .then((articles) => dispatch(fetchDataSuccess(articles)))
       .catch((error) => dispatch(fetchDataFailed(error)));
   };

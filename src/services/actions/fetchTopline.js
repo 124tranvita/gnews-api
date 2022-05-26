@@ -1,9 +1,5 @@
-import {
-  FETCH_TOPLINE,
-  FETCH_TOPLINE_SUCCESS,
-  FETCH_TOPLINE_FAILED,
-} from "./constants";
-import { fetchToplineService } from "../../middleware";
+import { FETCH_TOPLINE, FETCH_TOPLINE_SUCCESS, FETCH_TOPLINE_FAILED } from './constants';
+import { fetchToplineService } from '../../utils/fetchAPIService';
 
 const fetchData = () => ({
   type: FETCH_TOPLINE,
@@ -19,10 +15,10 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchTopline = (lang, token) => {
+export const fetchTopline = (token, lang) => {
   return (dispatch) => {
     dispatch(fetchData());
-    fetchToplineService(lang, token)
+    fetchToplineService(token, lang)
       .then((articles) => dispatch(fetchDataSuccess(articles)))
       .catch((error) => dispatch(fetchDataFailed(error)));
   };

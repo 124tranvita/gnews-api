@@ -4,8 +4,8 @@ import {
   FETCH_SEARCH_FAILED,
   SHOW_RESULT_MODAL,
   CLOSE_RESULT_MODAL,
-} from "../actions/constants";
-import { fetchSearchArticlesService } from "../../middleware";
+} from '../actions/constants';
+import { fetchSearchArticlesService } from '../../utils/fetchAPIService';
 
 const fetchData = () => ({
   type: FETCH_SEARCH,
@@ -21,10 +21,10 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchSearch = (keyword, lang, from, to, token) => {
+export const fetchSearch = (token, lang, keyword, from, to) => {
   return (dispatch) => {
     dispatch(fetchData());
-    fetchSearchArticlesService(keyword, lang, from, to, token)
+    fetchSearchArticlesService(token, lang, keyword, from, to)
       .then((articles) => dispatch(fetchDataSuccess(articles)))
       .catch((error) => dispatch(fetchDataFailed(error)));
   };

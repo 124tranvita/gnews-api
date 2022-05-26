@@ -1,7 +1,8 @@
-import { Container, Navbar, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import { LangaugeSetting, TokenSetting } from "../../../Settings";
-import { Search } from "../../../Forms";
+import { Container, Navbar, Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import { LangaugeSetting, TokenSetting } from '../../../Settings';
+import { Search } from '../../../Forms';
+import images from '../../../../assets/images';
 
 function Header() {
   return (
@@ -9,12 +10,7 @@ function Header() {
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
         <Container>
           <NavLink className="nav-link" to="/">
-            <img
-              src=".assets/images/logo.svg"
-              alt="logo"
-              width="32"
-              height="32"
-            />
+            <img src={images.logo} alt="logo" width="32" height="32" />
           </NavLink>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

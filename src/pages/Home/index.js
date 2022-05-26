@@ -1,12 +1,12 @@
-import { ViewLatest, ViewHighlight } from "../../components/ActiclesView";
+import { ViewLatest, ViewHighlight } from '../../components/ActiclesView';
 
 function Home() {
   return (
     <>
       <ViewLatest />
-      <ViewHighlight keyword={"politics"} />
-      <ViewHighlight keyword={"sports"} />
-      <ViewHighlight keyword={"entertaiment"} />
+      <ViewHighlight keyword={'politics'} />
+      <ViewHighlight keyword={'sports'} />
+      <ViewHighlight keyword={'entertainment'} />
     </>
   );
 }

@@ -1,0 +1,11 @@
+.captionWrapper {
+  padding: 1rem 0;
+}
+
+.caption {
+  display: flex;
+  justify-content: space-between;
+  color: #212529;
+  border-bottom: 1px solid #212529;
+  padding: 0 1rem;
+}

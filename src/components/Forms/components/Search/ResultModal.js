@@ -1,8 +1,8 @@
-import { useSelector, useDispatch } from "react-redux";
-import { Modal, Button, Card } from "react-bootstrap";
-import { closeResultModal } from "../../services/actions/fetchSearch";
-import { Loader, Error } from "../Loader";
-import images from "../../../../assets/images";
+import { useSelector, useDispatch } from 'react-redux';
+import { Modal, Button, Card } from 'react-bootstrap';
+import { closeResultModal } from '../../../../services/actions/fetchSearch';
+import { Loader, Error } from '../../../Loader';
+import images from '../../../../assets/images';
 
 function ResultModal({ keyword }) {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ function ResultModal({ keyword }) {
         <Modal.Body>
           {loading && <Loader />}
           {error && (
-            <div style={{ height: "150px" }}>
+            <div style={{ height: '150px' }}>
               <Error error={error} />
             </div>
           )}
@@ -35,12 +35,7 @@ function ResultModal({ keyword }) {
               {articles.map((article, index) => (
                 <div className="col-12" key={index}>
                   <Card className="bg-dark text-white mt-2">
-                    <Card.Img
-                      src={article.image}
-                      alt={article.title}
-                      width="731"
-                      height="270"
-                    />
+                    <Card.Img src={article.image} alt={article.title} width="731" height="270" />
                     <Card.ImgOverlay>
                       <Card.Title>
                         <a href={article.source.url}>{article.title}</a>
@@ -49,8 +44,7 @@ function ResultModal({ keyword }) {
                         <p>{article.description}</p>
                       </Card.Text>
                       <Card.Text>
-                        <span>{article.publishedAt}</span> |{" "}
-                        <span>{article.source.name}</span>
+                        <span>{article.publishedAt}</span> | <span>{article.source.name}</span>
                       </Card.Text>
                     </Card.ImgOverlay>
                   </Card>
@@ -74,12 +68,7 @@ const NotFound = () => (
     <div className="container-fluid">
       <div className="row">
         <div className="text-center">
-          <img
-            src={images.notfound}
-            alt="notfound-logo"
-            height="64"
-            width="64"
-          />
+          <img src={images.notfound} alt="notfound-logo" height="64" width="64" />
           <p className="text-muted">No acticles was found!</p>
         </div>
       </div>

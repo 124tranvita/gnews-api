@@ -1,10 +1,5 @@
-import {
-  FETCH_LATEST,
-  FETCH_LATEST_SUCCESS,
-  FETCH_LATEST_FAILED,
-  CHANGE_LATEST_TOPIC,
-} from "./constants";
-import { fetchLatestArticlesService } from "../../middleware";
+import { FETCH_LATEST, FETCH_LATEST_SUCCESS, FETCH_LATEST_FAILED, CHANGE_LATEST_TOPIC } from './constants';
+import { fetchLatestArticlesService } from '../../utils/fetchAPIService';
 
 const fetchData = () => ({
   type: FETCH_LATEST,
@@ -20,10 +15,10 @@ const fetchDataFailed = (error) => ({
   payload: error,
 });
 
-export const fetchLatest = (topic, lang, token) => {
+export const fetchLatest = (token, lang, topic) => {
   return (dispatch) => {
     dispatch(fetchData());
-    fetchLatestArticlesService(topic, lang, token)
+    fetchLatestArticlesService(token, lang, topic)
       .then((articles) => dispatch(fetchDataSuccess(articles)))
       .catch((error) => dispatch(fetchDataFailed(error)));
   };

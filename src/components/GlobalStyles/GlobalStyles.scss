@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600&display=swap');
 
 :root {
   --primary: #212529;
@@ -12,13 +12,9 @@
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
-  font-family: "Roboto Flex", sans-serif;
-  font-size: 1.6rem;
+  font-family: 'Roboto Flex', sans-serif;
+  // font-size: 1.6rem;
   background-color: var(--bs-gray-100);
 }
 
@@ -32,7 +28,7 @@ a {
 }
 
 @media screen and (min-width: 992px) {
-  .main-wrapper {
+  .main-container {
     max-width: 1200px;
     margin: auto;
   }
@@ -71,6 +67,14 @@ a {
   background-color: rgba(0, 0, 0, 0);
 }
 
+.loading-large-panel {
+  height: 480px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 /*Topline Carousel*/
 .carousel {
   margin-top: 3.5rem;
@@ -102,11 +106,7 @@ a {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 1),
-      rgba(0, 0, 0, 0)
-    );
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     /* z-index: 10; */
   }
 
@@ -137,11 +137,7 @@ a {
 }
 .card {
   .card-img-overlay {
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 1),
-      rgba(0, 0, 0, 0)
-    );
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   }
 }
 

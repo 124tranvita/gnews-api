@@ -1,12 +1,14 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { Card } from "react-bootstrap";
-import styles from "./ArticlesHighlight.module.css";
-import { Error } from "../Loader";
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Card } from 'react-bootstrap';
+import styles from './ViewHighlight.module.css';
+import { Error } from '../../../Loader';
 
 function ViewHighlight({ keyword }) {
+  console.log(keyword);
+
   const [view, setView] = useState(3);
-  const [button, setButton] = useState("\u21C9");
+  const [button, setButton] = useState('\u21C9');
   const { loading, articles, error } = useSelector((state) => ({
     loading: state[keyword].loading,
     articles: state[keyword].articles,
@@ -15,12 +17,12 @@ function ViewHighlight({ keyword }) {
 
   // Handle button click
   const handleClick = () => {
-    if (button === "\u21C9") {
+    if (button === '\u21C9') {
       setView(6);
-      setButton("\u21CA");
+      setButton('\u21CA');
     } else {
       setView(3);
-      setButton("\u21C9");
+      setButton('\u21C9');
     }
   };
   return (
@@ -28,12 +30,7 @@ function ViewHighlight({ keyword }) {
       <div className={styles.captionWrapper}>
         <div className={styles.caption}>
           <h4>{keyword.charAt(0).toUpperCase() + keyword.slice(1)}</h4>
-          <button
-            id={keyword}
-            className={styles.btnNews}
-            name={keyword}
-            onClick={handleClick}
-          >
+          <button id={keyword} className={styles.btnNews} name={keyword} onClick={handleClick}>
             <p>{button}</p>
           </button>
         </div>
@@ -53,15 +50,11 @@ function ViewHighlight({ keyword }) {
 
       {!error && articles.length === 0 && (
         <div className="loading-panel">
-          <div className="error">
-            Your selected language does not have any related news at this time!
-          </div>
+          <div className="error">Oops! No news found!</div>
         </div>
       )}
 
-      {!error && !loading && articles.length !== 0 && (
-        <ArticlesListView articles={articles} view={view} />
-      )}
+      {!error && !loading && articles.length !== 0 && <ArticlesListView articles={articles} view={view} />}
     </>
   );
 }
@@ -75,13 +68,8 @@ const ArticlesListView = ({ articles, view }) => {
         {sliceArticles.map((article, index) => {
           return (
             <div className="col-12 col-sm-6 col-xl-4 mb-2" key={index}>
-              <Card style={{ textAlign: "start", height: "40rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={article.image}
-                  alt={article.title}
-                  style={{ height: "10rem" }}
-                />
+              <Card style={{ textAlign: 'start', height: '40rem' }}>
+                <Card.Img variant="top" src={article.image} alt={article.title} style={{ height: '10rem' }} />
                 <Card.Body>
                   <Card.Title>
                     <a href={article.source.url} className={styles.titleLink}>
@@ -92,13 +80,9 @@ const ArticlesListView = ({ articles, view }) => {
                 </Card.Body>
                 <Card.Body>
                   <Card.Text>
-                    <span>{article.publishedAt}</span> |{" "}
-                    <span>{article.source.name}</span>
+                    <span>{article.publishedAt}</span> | <span>{article.source.name}</span>
                   </Card.Text>
-                  <Card.Link
-                    href={article.source.url}
-                    className={styles.footerLink}
-                  >
+                  <Card.Link href={article.source.url} className={styles.footerLink}>
                     Read more...
                   </Card.Link>
                 </Card.Body>

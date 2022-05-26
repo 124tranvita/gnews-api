@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
-import LazyLoad from "react-lazy-load";
-import { Card } from "react-bootstrap";
-import styles from "./style/articlesView.module.css";
-import { Error } from "../Loader";
+import { useSelector } from 'react-redux';
+import LazyLoad from 'react-lazy-load';
+import { Card } from 'react-bootstrap';
+import styles from './ViewAll.module.css';
+import { Error } from '../../../Loader';
 
 function ViewAll({ keyword }) {
   const { loading, articles, error } = useSelector((state) => ({
@@ -16,35 +16,28 @@ function ViewAll({ keyword }) {
       <div className={styles.captionWrapper}>
         <div className={styles.caption}>
           <h4>{keyword.charAt(0).toUpperCase() + keyword.slice(1)}</h4>
-          <button id={keyword} className={styles.btnNews} name={keyword}>
-            <p>{"\u21C9"}</p>
-          </button>
         </div>
       </div>
 
       {loading && (
-        <div className={styles.loadingPanel}>
-          <div className={styles.loader}></div>
+        <div className="loading-large-panel">
+          <div className="loader"></div>
         </div>
       )}
 
       {!loading && error && (
-        <div className={styles.loadingPanel}>
+        <div className="loading-large-panel">
           <Error error={error} />
         </div>
       )}
 
       {!error && articles.length === 0 && (
-        <div className={styles.loadingPanel}>
-          <div className={styles.error}>
-            Your selected language does not have any related news at this time!
-          </div>
+        <div className="loading-large-panel">
+          <div className={styles.error}>Oops! No news found!</div>
         </div>
       )}
 
-      {!error && !loading && articles.length !== 0 && (
-        <ArticlesListView articles={articles} />
-      )}
+      {!error && !loading && articles.length !== 0 && <ArticlesListView articles={articles} />}
     </>
   );
 }
@@ -57,13 +50,8 @@ const ArticlesListView = ({ articles }) => {
           return (
             <div className="col-12 col-sm-6 col-xl-4 mb-2" key={index}>
               <LazyLoad>
-                <Card style={{ textAlign: "start", height: "40rem" }}>
-                  <Card.Img
-                    variant="top"
-                    src={article.image}
-                    alt={article.title}
-                    style={{ height: "10rem" }}
-                  />
+                <Card style={{ textAlign: 'start', height: '40rem' }}>
+                  <Card.Img variant="top" src={article.image} alt={article.title} style={{ height: '10rem' }} />
                   <Card.Body>
                     <Card.Title>
                       <a href={article.source.url} className={styles.titleLink}>
@@ -74,13 +62,9 @@ const ArticlesListView = ({ articles }) => {
                   </Card.Body>
                   <Card.Body>
                     <Card.Text>
-                      <span>{article.publishedAt}</span> |{" "}
-                      <span>{article.source.name}</span>
+                      <span>{article.publishedAt}</span> | <span>{article.source.name}</span>
                     </Card.Text>
-                    <Card.Link
-                      href={article.source.url}
-                      className={styles.footerLink}
-                    >
+                    <Card.Link href={article.source.url} className={styles.footerLink}>
                       Read more...
                     </Card.Link>
                   </Card.Body>

@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { NavDropdown } from "react-bootstrap";
-import { Error } from "../Loader";
-import { changeLatestTopic } from "../../services/actions/fetchLatest";
-import styles from "./ArticlesLatest.module.css";
+import { useState, useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { NavDropdown } from 'react-bootstrap';
+import { Error } from '../../../Loader';
+import { changeLatestTopic } from '../../../../services/actions/fetchLatest';
+import styles from './ViewLatest.module.css';
 
 function ViewLatest() {
   const dispatch = useDispatch();
@@ -30,12 +30,8 @@ function ViewLatest() {
             <NavDropdown.Item eventKey="world">World</NavDropdown.Item>
             <NavDropdown.Item eventKey="nation">Nation</NavDropdown.Item>
             <NavDropdown.Item eventKey="business">Business</NavDropdown.Item>
-            <NavDropdown.Item eventKey="technology">
-              Technology
-            </NavDropdown.Item>
-            <NavDropdown.Item eventKey="entertainment">
-              Entertainment
-            </NavDropdown.Item>
+            <NavDropdown.Item eventKey="technology">Technology</NavDropdown.Item>
+            <NavDropdown.Item eventKey="entertainment">Entertainment</NavDropdown.Item>
             <NavDropdown.Item eventKey="sports">Sports</NavDropdown.Item>
             <NavDropdown.Item eventKey="science">Science</NavDropdown.Item>
             <NavDropdown.Item eventKey="health">Health</NavDropdown.Item>
@@ -55,9 +51,13 @@ function ViewLatest() {
         </div>
       )}
 
-      {!error && !loading && sliceArticles.length !== 0 && (
-        <LeftPanel sliceArticles={sliceArticles} />
+      {!error && articles.length === 0 && (
+        <div className="loading-panel">
+          <div className="error">Oops! No news found!</div>
+        </div>
       )}
+
+      {!error && !loading && sliceArticles.length !== 0 && <LeftPanel sliceArticles={sliceArticles} />}
     </>
   );
 }
@@ -81,7 +81,7 @@ const LeftPanel = ({ sliceArticles }) => {
 
     // Add click event for every <li> in <ul>
     liEl.forEach((li) => {
-      li.addEventListener("click", () => {
+      li.addEventListener('click', () => {
         clearActiveClass();
         li.classList.add(styles.active);
       });
@@ -90,7 +90,7 @@ const LeftPanel = ({ sliceArticles }) => {
     // Clean up function
     return () => {
       liEl.forEach((li) => {
-        li.removeEventListener("click", () => {
+        li.removeEventListener('click', () => {
           clearActiveClass();
           li.classList.add(styles.active);
         });
@@ -126,12 +126,7 @@ const RightPanel = ({ item }) => {
   return (
     <>
       <div className={styles.panelWrapper}>
-        <img
-          className="d-block w-100"
-          src={item.image}
-          alt={item.title}
-          height="460"
-        />
+        <img className="d-block w-100" src={item.image} alt={item.title} height="460" />
         <div className={styles.newsCaption}>
           <a href={item.source.url}>
             <h3>{item.title}</h3>

@@ -1,14 +1,13 @@
-import { useState } from "react";
-import { Modal, Button, Image } from "react-bootstrap";
-import styles from "./Subscribe.module.css";
-import images from "../../../../assets/images";
+import { useState } from 'react';
+import { Modal, Button, Image } from 'react-bootstrap';
+import styles from './Subscribe.module.css';
 
 function Subscribe() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [show, setShow] = useState(false);
 
   const handleClose = () => {
-    setEmail("");
+    setEmail('');
     setShow(false);
   };
   const handleShow = () => setShow(true);
@@ -57,12 +56,7 @@ function Subscribe() {
         <Modal.Body>
           <h4>{email}</h4>
           <p className="text-muted">Thank for your subscribe!</p>
-          <Image
-            src={images.present}
-            alt="subscribe-icon"
-            width="64"
-            height="64"
-          />
+          <Image src="assets/images/present.svg" alt="subscribe-icon" width="64" height="64" />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
