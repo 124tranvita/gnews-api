@@ -25,7 +25,7 @@ function Toplines() {
 
   if (error) {
     return (
-      <div className="carousel-loading-panel">
+      <div className="loading-large-panel">
         <Error error={error} />
       </div>
     );
