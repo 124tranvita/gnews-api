@@ -1,10 +1,11 @@
-function debounce(func, delay) {
-  let timer;
-
+function debounce(fn, delay) {
+  let id;
+  //console.log(`id at immediate: ${id}`);
   return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func(...args);
+    //console.log(`Previous id: ${id}`);
+    if (id) clearTimeout(id);
+    id = setTimeout(() => {
+      fn(...args);
     }, delay);
   };
 }

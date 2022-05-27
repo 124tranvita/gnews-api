@@ -8,9 +8,7 @@ yesterday.setDate(yesterday.getDate() - 1);
 //console.log("Today is: ", today.toISOString());
 //console.log("Yesterday is: ", yesterday.toISOString());
 
-export const fetchToplineService = (...args) => {
-  const [token, lang] = [...args];
-
+export const fetchToplinesAPI = ({ token, lang }) => {
   return new Promise((resolve, reject) => {
     axios
       .get(`https://gnews.io/api/v4/top-headlines?token=${token}&lang=${lang}`)
@@ -21,9 +19,7 @@ export const fetchToplineService = (...args) => {
   });
 };
 
-export const fetchArticlesService = (...args) => {
-  const [token, lang, keyword] = [...args];
-
+export const fetchArticlesAPI = ({ token, lang, keyword }) => {
   return new Promise((resolve, reject) => {
     axios
       .get(`https://gnews.io/api/v4/search?q=${keyword}&token=${token}&lang=${lang}`)
@@ -32,9 +28,7 @@ export const fetchArticlesService = (...args) => {
   });
 };
 
-export const fetchSearchArticlesService = (...args) => {
-  const [token, lang, keyword, from, to] = [...args];
-
+export const fetchSearchArticlesAPI = ({ token, lang, keyword, from, to }) => {
   return new Promise((resolve, reject) => {
     axios
       .get(
@@ -45,9 +39,7 @@ export const fetchSearchArticlesService = (...args) => {
   });
 };
 
-export const fetchLatestArticlesService = (...args) => {
-  const [token, lang, topic] = [...args];
-
+export const fetchLatestArticlesAPI = ({ token, lang, topic }) => {
   return new Promise((resolve, reject) => {
     axios
       .get(

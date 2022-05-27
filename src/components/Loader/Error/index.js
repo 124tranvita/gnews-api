@@ -8,7 +8,7 @@ function Error({ error }) {
           <div className="row">
             <div className="col-12 text-center">
               <img src={images.problem} alt="problem" width="64" height="64" />
-              <p className="text-muted">{error.message}</p>
+              <p className="text-muted">{error}</p>
             </div>
           </div>
         </div>

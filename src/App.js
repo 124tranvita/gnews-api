@@ -6,44 +6,48 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Layout from './components/Layout';
 import routes from './routes';
-import { fetchTopline, fetchLatest, fetchPolitics, fetchSports, fetchEntertainment } from './services/actions';
 import debounce from './utils/debounce';
+import { fetchToplines } from './features/toplines/toplinesSlice';
+import { fetchLatest } from './features/latest/latestSlice';
+import { fetchPolitics } from './features/politics/politicsSlice';
+import { fetchSports } from './features/sports/sportsSlice';
+import { fetchEntertainment } from './features/entertainment/entertainmentSlice';
 
 function App() {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.token);
-  const lang = useSelector((state) => state.lang);
+  const token = useSelector((state) => state.settings.token);
+  const lang = useSelector((state) => state.settings.lang);
   const topic = useSelector((state) => state.latest.topic);
 
   // Fetch Topline News
   useEffect(() => {
-    const dispatchTopline = dispatch(fetchTopline(token, lang));
-    debounce(() => (dispatchTopline, 0));
-  }, [token, lang]);
+    const debounceFetch = debounce(() => dispatch(fetchToplines({ token, lang })), 0);
+    debounceFetch();
+  }, [dispatch, token, lang]);
 
   // Fetch Latest News
   useEffect(() => {
-    const dispatchLatestNews = dispatch(fetchLatest(token, lang, topic));
-    debounce(() => (dispatchLatestNews, 1000));
-  }, [token, lang, topic]);
+    const debounceFetch = debounce(() => dispatch(fetchLatest({ token, lang, topic })), 2000);
+    debounceFetch();
+  }, [dispatch, token, lang, topic]);
 
   // Fetch Politics News
   useEffect(() => {
-    const dispatchPoliticsNews = dispatch(fetchPolitics(token, lang));
-    debounce(() => (dispatchPoliticsNews, 2000));
-  }, [token, lang]);
+    const debounceFetch = debounce(() => dispatch(fetchPolitics({ token, lang })), 4000);
+    debounceFetch();
+  }, [dispatch, token, lang]);
 
   // Fetch Sports News
   useEffect(() => {
-    const dispatchSportsNews = dispatch(fetchSports(token, lang));
-    debounce(() => (dispatchSportsNews, 3000));
-  }, [token, lang]);
+    const debounceFetch = debounce(() => dispatch(fetchSports({ token, lang })), 6000);
+    debounceFetch();
+  }, [dispatch, token, lang]);
 
   // Fetch Entertainment News
   useEffect(() => {
-    const dispatchEntertainmentNews = dispatch(fetchEntertainment(token, lang));
-    debounce(() => (dispatchEntertainmentNews, 4000));
-  }, [token, lang]);
+    const debounceFetch = debounce(() => dispatch(fetchEntertainment({ token, lang })), 8000);
+    debounceFetch();
+  }, [dispatch, token, lang]);
 
   return (
     <HashRouter>

@@ -5,12 +5,10 @@ import styles from './ViewHighlight.module.css';
 import { Error } from '../../../Loader';
 
 function ViewHighlight({ keyword }) {
-  console.log(keyword);
-
   const [view, setView] = useState(3);
   const [button, setButton] = useState('\u21C9');
-  const { loading, articles, error } = useSelector((state) => ({
-    loading: state[keyword].loading,
+  const { status, articles, error } = useSelector((state) => ({
+    status: state[keyword].status,
     articles: state[keyword].articles,
     error: state[keyword].error,
   }));
@@ -36,13 +34,13 @@ function ViewHighlight({ keyword }) {
         </div>
       </div>
 
-      {loading && (
+      {status === 'loading' && (
         <div className="loading-panel">
           <div className="loader"></div>
         </div>
       )}
 
-      {!loading && error && (
+      {status === 'failed' && (
         <div className="loading-panel">
           <Error error={error} />
         </div>
@@ -54,7 +52,9 @@ function ViewHighlight({ keyword }) {
         </div>
       )}
 
-      {!error && !loading && articles.length !== 0 && <ArticlesListView articles={articles} view={view} />}
+      {status === 'succeeded' && !error && articles.length !== 0 && (
+        <ArticlesListView articles={articles} view={view} />
+      )}
     </>
   );
 }

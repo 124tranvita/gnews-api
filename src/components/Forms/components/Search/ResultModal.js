@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Modal, Button, Card } from 'react-bootstrap';
-import { closeResultModal } from '../../../../services/actions/fetchSearch';
+import { closeResultModal } from '../../../../features/search/searchSlice';
 import { Loader, Error } from '../../../Loader';
 import images from '../../../../assets/images';
 
 function ResultModal({ keyword }) {
   const dispatch = useDispatch();
 
-  const { loading, articles, error, show } = useSelector((state) => ({
-    loading: state.search.loading,
+  const { status, articles, error, show } = useSelector((state) => ({
+    status: state.search.status,
     articles: state.search.articles,
     error: state.search.error,
     show: state.search.show,
@@ -23,14 +23,14 @@ function ResultModal({ keyword }) {
           <Modal.Title>Result for "{keyword}"</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {loading && <Loader />}
-          {error && (
+          {status === 'loading' && <Loader />}
+          {status === 'failed' && (
             <div style={{ height: '150px' }}>
               <Error error={error} />
             </div>
           )}
-          {!loading && !error && articles.length === 0 && <NotFound />}
-          {!loading && !error && articles.length !== 0 && (
+          {status === 'succeeded' && !error && articles.length === 0 && <NotFound />}
+          {status === 'succeeded' && !error && articles.length !== 0 && (
             <div className="row">
               {articles.map((article, index) => (
                 <div className="col-12" key={index}>

@@ -2,13 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavDropdown } from 'react-bootstrap';
 import { Error } from '../../../Loader';
-import { changeLatestTopic } from '../../../../services/actions/fetchLatest';
+import { changeTopic } from '../../../../features/latest/latestSlice';
 import styles from './ViewLatest.module.css';
 
 function ViewLatest() {
   const dispatch = useDispatch();
-  const { loading, articles, error, topic } = useSelector((state) => ({
-    loading: state.latest.loading,
+  const { status, articles, error, topic } = useSelector((state) => ({
+    status: state.latest.status,
     articles: state.latest.articles,
     error: state.latest.error,
     topic: state.latest.topic,
@@ -25,7 +25,7 @@ function ViewLatest() {
             id={styles.topicDropdown}
             title={`Topic ${topic}`}
             menuVariant="dark"
-            onSelect={(eventKey) => dispatch(changeLatestTopic(eventKey))}
+            onSelect={(eventKey) => dispatch(changeTopic(eventKey))}
           >
             <NavDropdown.Item eventKey="world">World</NavDropdown.Item>
             <NavDropdown.Item eventKey="nation">Nation</NavDropdown.Item>
@@ -39,13 +39,13 @@ function ViewLatest() {
         </div>
       </div>
 
-      {loading && (
+      {status === 'loading' && (
         <div className="loading-panel">
           <div className="loader"></div>
         </div>
       )}
 
-      {!loading && error && (
+      {status === 'failed' && (
         <div className="loading-panel">
           <Error error={error} />
         </div>
@@ -57,7 +57,7 @@ function ViewLatest() {
         </div>
       )}
 
-      {!error && !loading && sliceArticles.length !== 0 && <LeftPanel sliceArticles={sliceArticles} />}
+      {status === 'succeeded' && !error && sliceArticles.length !== 0 && <LeftPanel sliceArticles={sliceArticles} />}
     </>
   );
 }

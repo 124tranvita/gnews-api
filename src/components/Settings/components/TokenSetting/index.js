@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavDropdown } from 'react-bootstrap';
-import { setToken } from '../../../../services/actions/changeToken';
+import { changeToken } from '../../../../features/settings/settingsSlice';
 
 function TokenSetting() {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ function TokenSetting() {
 
   // Dispatch setToken action
   const handleSelect = (eventKey) => {
-    dispatch(setToken(eventKey));
+    dispatch(changeToken(eventKey));
   };
 
   return (

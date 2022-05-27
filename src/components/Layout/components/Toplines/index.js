@@ -4,10 +4,10 @@ import { Carousel } from 'react-bootstrap';
 import { Error } from '../../../Loader';
 
 function Toplines() {
-  const { loading, articles, error } = useSelector((state) => ({
-    loading: state.topline.loading,
-    articles: state.topline.articles,
-    error: state.topline.error,
+  const { status, articles, error } = useSelector((state) => ({
+    status: state.toplines.status,
+    articles: state.toplines.articles,
+    error: state.toplines.error,
   }));
   const [index, setIndex] = useState(0);
 
@@ -15,7 +15,7 @@ function Toplines() {
     setIndex(selectedIndex);
   };
 
-  if (loading) {
+  if (status === 'loading') {
     return (
       <div className="loading-large-panel">
         <div className="loader"></div>

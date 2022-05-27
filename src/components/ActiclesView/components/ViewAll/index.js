@@ -5,8 +5,8 @@ import styles from './ViewAll.module.css';
 import { Error } from '../../../Loader';
 
 function ViewAll({ keyword }) {
-  const { loading, articles, error } = useSelector((state) => ({
-    loading: state[keyword].loading,
+  const { status, articles, error } = useSelector((state) => ({
+    status: state[keyword].status,
     articles: state[keyword].articles,
     error: state[keyword].error,
   }));
@@ -19,13 +19,13 @@ function ViewAll({ keyword }) {
         </div>
       </div>
 
-      {loading && (
+      {status === 'loading' && (
         <div className="loading-large-panel">
           <div className="loader"></div>
         </div>
       )}
 
-      {!loading && error && (
+      {status === 'failed' && (
         <div className="loading-large-panel">
           <Error error={error} />
         </div>
@@ -37,7 +37,7 @@ function ViewAll({ keyword }) {
         </div>
       )}
 
-      {!error && !loading && articles.length !== 0 && <ArticlesListView articles={articles} />}
+      {status === 'succeeded' && !error && articles.length !== 0 && <ArticlesListView articles={articles} />}
     </>
   );
 }

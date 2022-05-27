@@ -3,13 +3,13 @@ import { Form, Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import ResultModal from './ResultModal';
 import styles from './Search.module.css';
-import { showResultModal, fetchSearch } from '../../../../services/actions/fetchSearch';
+import { showResultModal, fetchSearch } from '../../../../features/search/searchSlice';
 
 function Search() {
   const dispatch = useDispatch();
   const show = useSelector((state) => state.search.show);
-  const lang = useSelector((state) => state.lang);
-  const token = useSelector((state) => state.token);
+  const lang = useSelector((state) => state.settings.lang);
+  const token = useSelector((state) => state.settings.token);
 
   const [keyword, setKeyword] = useState('');
   const [from, setFrom] = useState('');
