@@ -28,6 +28,7 @@ const sportsSlice = createSlice({
       .addCase(fetchSports.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.articles = action.payload;
+        state.error = null;
       })
       .addCase(fetchSports.rejected, (state, action) => {
         state.status = 'failed';

@@ -31,6 +31,7 @@ const entertainmentSlice = createSlice({
       .addCase(fetchEntertainment.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.articles = action.payload;
+        state.error = null;
       })
       .addCase(fetchEntertainment.rejected, (state, action) => {
         state.status = 'failed';

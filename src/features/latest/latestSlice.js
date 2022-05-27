@@ -44,6 +44,7 @@ const latestSlice = createSlice({
       .addCase(fetchLatest.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.articles = action.payload;
+        state.error = null;
       })
       .addCase(fetchLatest.rejected, (state, action) => {
         state.status = 'failed';

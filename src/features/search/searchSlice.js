@@ -47,6 +47,7 @@ const searchSlice = createSlice({
       .addCase(fetchSearch.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.articles = action.payload;
+        state.error = null;
       })
       .addCase(fetchSearch.rejected, (state, action) => {
         state.status = 'failed';

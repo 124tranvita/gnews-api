@@ -31,6 +31,7 @@ const toplinesSlice = createSlice({
       .addCase(fetchToplines.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.articles = action.payload;
+        state.error = null;
       })
       .addCase(fetchToplines.rejected, (state, action) => {
         state.status = 'failed';

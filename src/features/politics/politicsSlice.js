@@ -31,6 +31,7 @@ const politicsSlice = createSlice({
       .addCase(fetchPolitics.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.articles = action.payload;
+        state.error = null;
       })
       .addCase(fetchPolitics.rejected, (state, action) => {
         state.status = 'failed';
