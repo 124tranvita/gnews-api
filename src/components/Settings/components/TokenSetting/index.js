@@ -21,21 +21,21 @@ function TokenSetting() {
         onSelect={(event) => handleSelect(event)}
       >
         <NavDropdown.Item
-          eventKey="1c539d252c8d0a7349c82e59ba7012c7a"
+          eventKey="c539d252c8d0a7349c82e59ba7012c7a"
           name="Toke #1"
           onClick={() => setTitle('Token #1')}
         >
           Token #1
         </NavDropdown.Item>
         <NavDropdown.Item
-          eventKey="10e13746a0fb36c8875e6d93887a79fee"
+          eventKey="0e13746a0fb36c8875e6d93887a79fee"
           name="Toke #2"
           onClick={() => setTitle('Token #2')}
         >
           Token #2
         </NavDropdown.Item>
         <NavDropdown.Item
-          eventKey="18463347e789cd1ef9b0580044a41bc56"
+          eventKey="8463347e789cd1ef9b0580044a41bc56"
           name="Toke #3"
           onClick={() => setTitle('Token #3')}
         >
