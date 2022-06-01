@@ -7,7 +7,7 @@ Simple news website that was created by ReactJS and GNews API.
 * [To do](#to-do)
 
 ## General info
-This project is simple news website where people can take on the top headlines and the latest news all around the world. Using GNews API as resource and ReactJS as FE technology, come up with full responsiveness and best view experience on every devices.
+This project is a simple news website where people can take on the top headlines and the latest news all around the world. Using GNews API as resource and ReactJS as FE technology, come up with full responsiveness and best view experience on every devices.
 
 ## Technologies
 Project is created with ReactJS using modules as below:
