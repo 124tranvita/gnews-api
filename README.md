@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Simple NEWS - ReactJS App
+Simple news website that was created by ReactJS and GNews API.
+## Table of content
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Supported Features](#supported-features)
+* [To do](#to-do)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## General info
+This project is simple news website where people can take on the top headlines and the latest news all around the world. Using GNews API as resource and ReactJS as FE technology, come up with full responsiveness and best view experience on every devices.
 
-## Available Scripts
+## Technologies
+Project is created with ReactJS using modules as below:
+* axios: 2.0.1
+* bootstrap: 5.1.3
+* bootstrap-icon: 1.8.2
+* react-bootstrap: 2.4.0
+* react-lazy-load: 3.1.13
+* react-redux-dom: 6
+* @reduxjs/toolkit: 1.8.2
+* ...
 
-In the project directory, you can run:
+## Supported Features
+### Top headlines news:
+* View top headlines news with carousel design, support automatically slide and controlled slide
+### Latest news:
+* View the last 4 latest news
+* Support topic change (world, health, technology,...)
+### Highlight:
+* View the highlight news for every catalogy (politics, sports, entertainment)
+* User can choose to view 3 or 6 articles per section
 
-### `yarn start`
+### Other:
+* Search option (include date) and change language option also supported in this site.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Limitations
+* Limited by the GNews free account so only one request will be called per second -> Loading resource for every catalogy will be delay by 2000ms to prevent 429 error
+* Currnet only supported 3 catalogues (politics, sports, entertainment)
+* Current only supported 3 languages (En, Jp, Cn)
+* UI may be broken if the article's title is too long (more than 128 chars)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## To Do
+* Add more catalogues support
+* Improve UI so smooth so far
+* ...
