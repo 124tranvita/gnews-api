@@ -68,11 +68,11 @@ const ArticlesListView = ({ articles, view }) => {
         {sliceArticles.map((article, index) => {
           return (
             <div className="col-12 col-sm-6 col-xl-4 mb-2" key={index}>
-              <Card style={{ textAlign: 'start', height: '40rem' }}>
+              <Card style={{ textAlign: 'start', height: '40rem' }} id={styles.viewArticlesCard}>
                 <Card.Img variant="top" src={article.image} alt={article.title} style={{ height: '10rem' }} />
                 <Card.Body>
                   <Card.Title>
-                    <a href={article.source.url} className={styles.titleLink}>
+                    <a href={article.source.url} className={styles.titleLink} target="_blank">
                       {article.title}
                     </a>
                   </Card.Title>
@@ -82,7 +82,7 @@ const ArticlesListView = ({ articles, view }) => {
                   <Card.Text>
                     <span>{article.publishedAt}</span> | <span>{article.source.name}</span>
                   </Card.Text>
-                  <Card.Link href={article.source.url} className={styles.footerLink}>
+                  <Card.Link href={article.source.url} className={styles.footerLink} target="_blank">
                     Read more...
                   </Card.Link>
                 </Card.Body>

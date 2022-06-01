@@ -54,7 +54,7 @@ const ArticlesListView = ({ articles }) => {
                   <Card.Img variant="top" src={article.image} alt={article.title} style={{ height: '10rem' }} />
                   <Card.Body>
                     <Card.Title>
-                      <a href={article.source.url} className={styles.titleLink}>
+                      <a href={article.source.url} className={styles.titleLink} target="_blank">
                         {article.title}
                       </a>
                     </Card.Title>
@@ -64,7 +64,7 @@ const ArticlesListView = ({ articles }) => {
                     <Card.Text>
                       <span>{article.publishedAt}</span> | <span>{article.source.name}</span>
                     </Card.Text>
-                    <Card.Link href={article.source.url} className={styles.footerLink}>
+                    <Card.Link href={article.source.url} className={styles.footerLink} target="_blank">
                       Read more...
                     </Card.Link>
                   </Card.Body>

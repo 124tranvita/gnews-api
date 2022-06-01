@@ -24,7 +24,6 @@ img {
 
 a {
   text-decoration: none;
-  color: #fff;
 }
 
 @media screen and (min-width: 992px) {
@@ -117,6 +116,14 @@ a {
     text-overflow: ellipsis;
     border: 1px solid #000000;
     border: none;
+  }
+
+  .carousel-caption a {
+    color: #fff;
+  }
+
+  .carousel-caption a:hover {
+    opacity: 0.8;
   }
 }
 

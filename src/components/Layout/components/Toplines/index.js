@@ -49,7 +49,7 @@ function Toplines() {
                 )}
                 <p>{article.description}</p>
                 <span>{article.publishedAt}</span> | <span>{article.source.name}</span> |{' '}
-                <a href={article.source.url}>
+                <a href={article.source.url} target="_blank">
                   <span>Read more...</span>
                 </a>
               </Carousel.Caption>

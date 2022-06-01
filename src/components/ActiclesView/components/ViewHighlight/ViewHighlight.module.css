@@ -21,3 +21,11 @@
 .btnNews:hover {
   cursor: pointer;
 }
+
+#viewArticlesCard a {
+  color: #000;
+}
+
+#viewArticlesCard a:hover {
+  opacity: 0.5;
+}

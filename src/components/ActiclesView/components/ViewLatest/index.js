@@ -107,7 +107,7 @@ const LeftPanel = ({ sliceArticles }) => {
               {sliceArticles.map((article, index) => {
                 return (
                   <li key={index} onClick={() => setItem(article)}>
-                    <img src={article.image} alt={article.title} />
+                    <img src={article.image} alt="article title" />
                   </li>
                 );
               })}
@@ -128,7 +128,7 @@ const RightPanel = ({ item }) => {
       <div className={styles.panelWrapper}>
         <img className="d-block w-100" src={item.image} alt={item.title} height="460" />
         <div className={styles.newsCaption}>
-          <a href={item.source.url}>
+          <a href={item.source.url} target="_blank">
             <h3>{item.title}</h3>
           </a>
           <p>{item.description}</p>
