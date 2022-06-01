@@ -40,9 +40,7 @@ function ResultModal({ keyword }) {
                       <Card.Title>
                         <a href={article.source.url}>{article.title}</a>
                       </Card.Title>
-                      <Card.Text>
-                        <p>{article.description}</p>
-                      </Card.Text>
+                      <Card.Text>{article.description}</Card.Text>
                       <Card.Text>
                         <span>{article.publishedAt}</span> | <span>{article.source.name}</span>
                       </Card.Text>

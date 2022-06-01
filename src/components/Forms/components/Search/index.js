@@ -30,7 +30,8 @@ function Search() {
   };
 
   const handleSubmit = (e) => {
-    dispatch(fetchSearch(token, lang, keyword, from, to));
+    //console.log(token, lang, keyword, from, to);
+    dispatch(fetchSearch({ token, lang, keyword, from, to }));
     dispatch(showResultModal());
     dropdownContent.current.style.display = 'none';
     e.preventDefault();
