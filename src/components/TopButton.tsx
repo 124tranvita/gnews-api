@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from "react";
 export function TopButton() {
   const [visible, setVisible] = useState<boolean>(false);
 
-  console.log("VISIABLE: ", visible);
-
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300) {

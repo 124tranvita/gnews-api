@@ -19,7 +19,6 @@ import { useAppSelector } from "./app/hook";
 import { GlobalLoader } from "./components/Loader/GlobalLoader";
 
 function App() {
-  console.log("APP RE_RENDER");
   const dispatch = useAppDispatch();
   const { token, lang } = useAppSelector((state) => ({
     token: state.globalSettings.token,
@@ -42,15 +41,25 @@ function App() {
     dispatch(fetchWeatherInfo());
   }, []);
 
-  /**Note: GNews API limited maximun request per sec by 3 for free user */
+  /**Note: GNews API limited maximun request per sec by 1 for free user */
   useEffect(() => {
     dispatch(fetchToplineArticles({ token, lang }));
   }, [token, lang]);
 
   useEffect(() => {
-    dispatch(
-      fetchEntertainmentArticles({ token, lang, keyword: entertainmentKeyword })
+    /**Use setTimeOut to limit request per sec. */
+    const timer = setTimeout(
+      () =>
+        dispatch(
+          fetchEntertainmentArticles({
+            token,
+            lang,
+            keyword: entertainmentKeyword,
+          })
+        ),
+      2000
     );
+    return () => clearTimeout(timer);
   }, [token, lang, entertainmentKeyword]);
 
   useEffect(() => {
@@ -60,7 +69,7 @@ function App() {
         dispatch(
           fetchBusinessArticles({ token, lang, keyword: businessKeyword })
         ),
-      1000
+      4000
     );
     return () => clearTimeout(timer);
   }, [token, lang, businessKeyword]);
@@ -70,7 +79,7 @@ function App() {
     const timer = setTimeout(
       () =>
         dispatch(fetchTravelArticles({ token, lang, keyword: travelKeyword })),
-      3000
+      6000
     );
     return () => clearTimeout(timer);
   }, [token, lang, travelKeyword]);

@@ -74,8 +74,6 @@ function ResultModal({ isOpen, closeModal, keyword }: ResultModalPRops) {
     isLoading: state.searchArticles.isLoading,
   }));
 
-  console.log("SEARCH ARTICLES: ", articles);
-
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
