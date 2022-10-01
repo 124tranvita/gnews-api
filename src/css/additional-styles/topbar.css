@@ -1,0 +1,32 @@
+.weather-info > span,
+.options-menu > span,
+.social-info > span {
+  position: relative;
+  padding: 0 0.5rem;
+}
+
+.options-menu > span:nth-child(1n + 2)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 1px;
+  height: 10px;
+  background-color: #fff;
+  opacity: 0.1;
+  left: 0;
+  top: calc(50% - 5px);
+}
+
+@media screen and (min-width: 992px) {
+  .options-menu > span:nth-child(n + 1)::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 10px;
+    background-color: #fff;
+    opacity: 0.1;
+    left: 0;
+    top: calc(50% - 5px);
+  }
+}

@@ -1,0 +1,38 @@
+.menu-desktop {
+  li {
+    height: 100%;
+    position: relative;
+  }
+
+  li > a {
+    height: 100%;
+    line-height: 1.5;
+    padding: 5px 0;
+    margin: 0 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+  }
+
+  li > a::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: calc(100% + 36px);
+    height: 5px;
+    bottom: 0;
+    left: -18px;
+    background-color: #019fb6;
+    transition: all 0.3s;
+    transform: scaleX(0);
+  }
+
+  li > a:hover::before {
+    transform: scaleX(1);
+  }
+
+  li.menu-active > a::before {
+    transform: scaleX(1);
+  }
+}

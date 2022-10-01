@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+/* Additional styles */
+@import "additional-styles/topbar.css";
+@import "additional-styles/article-card.css";
+@import "additional-styles/normal-articles.css";
+@import "additional-styles/menu-bar.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
