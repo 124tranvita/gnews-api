@@ -67,7 +67,7 @@ export function NormalArticles({
       >
         <span className="font-bold">{topic}</span>
         {/* Menu desktop */}
-        <span className="article-menu-items text-sm text-slate-900 hidden md:block">
+        <span className="article-menu-items text-sm text-slate-900 dark:text-slate-200 hidden md:block">
           {menus.map((menu, i) => (
             <span
               key={menu.id}
@@ -111,7 +111,7 @@ export function NormalArticles({
           )}
         </div>
 
-        <span className="flex justify-start items-center text-sm text-slate-400 hover:text-slate-500 cursor-pointer">
+        <span className="flex justify-start items-center text-sm text-slate-300 hover:text-slate-500 cursor-pointer">
           <Link to={path}>
             <span>View all</span>
           </Link>

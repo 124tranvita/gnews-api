@@ -12,7 +12,9 @@ type Props = {
 export function CategoryArticles({ topic, articles }: Props) {
   return (
     <div className="relative max-w-6xl mx-auto">
-      <div className="px-4 py-6 text-lg font-bold">{topic}</div>
+      <div className="px-4 py-6 text-lg font-bold dark:text-slate-200">
+        {topic}
+      </div>
       {/* Highlight articles */}
       <div className="grid grid-cols-4 md:grid-flow-row-dense md:grid-rows-2 items-baseline gap-1 px-4 py-2 mb-3">
         <div className="col-span-full md:col-span-2 md:row-span-2">

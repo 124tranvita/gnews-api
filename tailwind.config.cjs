@@ -3,6 +3,7 @@ const { nodeModuleNameResolver } = require("typescript");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: "class",
   theme: {
     extend: {
       height: {
@@ -20,6 +21,7 @@ module.exports = {
       },
       animation: {
         "fade-in-down": "fade-in-down 1s ease-out",
+        "fade-in-up": "fade-in-up 1s ease-out",
         "fade-in": "fade-in 1s ease-out",
         "fade-out-down": "fade-out-down 1s ease-out",
         "fade-out": "fade-out 1s ease-out",
@@ -59,6 +61,16 @@ module.exports = {
           },
           "100%": {
             opacity: "0",
+          },
+        },
+        "fade-in-up": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
           },
         },
       },

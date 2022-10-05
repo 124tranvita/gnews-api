@@ -25,11 +25,12 @@ export function TopButton() {
   }, []);
 
   return (
-    <div className="fixed bottom-20 right-20 opacity-80">
-      <button
-        className={`${visible ? "block" : "hidden"} text-indigo-600`}
-        onClick={scrollToTop}
-      >
+    <div
+      className={`${
+        visible ? "translate-y-0" : " translate-y-12"
+      } fixed bottom-0 right-1 lg:right-14 opacity-50 lg:opacity-80 duration-500`}
+    >
+      <button className={`text-indigo-600`} onClick={scrollToTop}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="36"

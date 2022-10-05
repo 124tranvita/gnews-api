@@ -2,6 +2,7 @@ import { TopArticleLoader } from "./../Loader/TopArticleLoader";
 
 import { classNames } from "../../utils/classNames";
 import { Article } from "../../utils/utilsType";
+import dateFormat from "dateformat";
 
 enum Size {
   LARGE,
@@ -52,7 +53,9 @@ export function TopArticleCard({ size, article }: Props) {
           {article.title}
         </a>
 
-        <p className="text-xs">{article.publishedAt}</p>
+        <p className="text-xs">
+          {dateFormat(article.publishedAt, "mmmm dS, yyyy")}
+        </p>
       </div>
     </div>
   );

@@ -59,7 +59,7 @@ export function StayConnected({ variant }: Props) {
   };
 
   return (
-    <div className="relative mb-6">
+    <div className="relative mb-6 text-slate-900 dark:text-slate-200">
       <div
         className={classNames(
           "article-menu-wrapper col-span-full relative flex justify-between items-center px-4 py-3 mb-8",
@@ -83,9 +83,7 @@ export function StayConnected({ variant }: Props) {
           </svg>
         </div>
         <div className="flex justify-between items-center w-full">
-          <span className="font-semibold text-md text-slate-800 hover:text-slate-900">
-            {follow} Followers
-          </span>
+          <span className="font-semibold text-md">{follow} Followers</span>
           <button
             className={`font-bold text-xs cursor-pointer duration-300 ${
               isFollow ? "text-white px-2 py-1 bg-blue-500 rounded-md" : ""
@@ -111,9 +109,7 @@ export function StayConnected({ variant }: Props) {
           </svg>
         </span>
         <div className="flex justify-between items-center w-full">
-          <span className="font-semibold text-md text-slate-800 hover:text-slate-900">
-            {like} Fans
-          </span>
+          <span className="font-semibold text-md">{like} Fans</span>
           <button
             className={`font-bold text-xs cursor-pointer duration-300 ${
               isLike
@@ -141,7 +137,7 @@ export function StayConnected({ variant }: Props) {
           </svg>
         </span>
         <div className="flex justify-between items-center w-full">
-          <span className="font-semibold text-md text-slate-800 hover:text-slate-900">
+          <span className="font-semibold text-md">
             {subscriber} Subscirbers
           </span>
           <button

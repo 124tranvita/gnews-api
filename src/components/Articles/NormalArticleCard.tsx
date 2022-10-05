@@ -1,3 +1,4 @@
+import dateFormat from "dateformat";
 import { NormalArticleLoader } from "../Loader/NormalArticleLoader";
 import { classNames } from "../../utils/classNames";
 import { Article } from "../../utils/utilsType";
@@ -51,11 +52,13 @@ export function NormalArticleCard({ size, article, isLoading }: Props) {
         <a
           href={article.url}
           target="_blank"
-          className="text-slate-900 hover:text-black"
+          className="text-slate-900 hover:text-black dark:text-slate-200 dark:hover:text-slate-300"
         >
           {article.title}
         </a>
-        <p className="text-xs text-slate-500 pt-2">{article.publishedAt}</p>
+        <p className="text-xs text-slate-500 dark:text-slate-300 pt-2">
+          {dateFormat(article.publishedAt, "mmmm dS, yyyy")}
+        </p>
       </div>
     </div>
   );

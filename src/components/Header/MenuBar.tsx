@@ -3,7 +3,7 @@ import { DropdownMenu } from "../../utils/DropdownMenu";
 
 export function MenuBarDesktop() {
   return (
-    <div className="menu-desktop sticky top-0 left-0 z-30 bg-white shadow-md hidden h-full lg:block">
+    <div className="menu-desktop sticky top-0 left-0 z-30 bg-white dark:bg-slate-600 dark:text-slate-100 shadow-md hidden h-full lg:block">
       <ul className="flex justify-start max-w-6xl mx-auto font-semibold items-center h-14">
         <li className="menu-active">
           <Link to="/">Home</Link>

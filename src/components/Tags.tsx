@@ -30,32 +30,32 @@ export function Tags({ variant }: Props) {
         <span className="font-bold">Tags</span>
       </div>
       <div className="mb-6">
-        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500">
+        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500 dark:text-gray-100">
           Sport
         </span>
-        <span className="mx-4 cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500">
+        <span className="mx-4 cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500 dark:text-gray-100">
           Life Style
         </span>
-        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500">
+        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500 dark:text-gray-100">
           Politics
         </span>
       </div>
       <div className="mb-6">
-        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500">
+        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500 dark:text-gray-100">
           Social
         </span>
-        <span className="mx-2 cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500">
+        <span className="mx-2 cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500 dark:text-gray-100">
           Fashion
         </span>
-        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500">
+        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500 dark:text-gray-100">
           Denim
         </span>
       </div>
       <div>
-        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500">
+        <span className="cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500 dark:text-gray-100">
           News
         </span>
-        <span className="mx-2 cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500">
+        <span className="mx-2 cursor-pointer border border-gray-300 py-2 px-3 rounded-xl text-gray-500 dark:text-gray-100">
           Blogs
         </span>
       </div>

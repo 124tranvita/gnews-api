@@ -47,7 +47,7 @@ export function PopularArticles({ variant }: Props) {
             {index + 1}
           </span>
           <a href={article?.url} target="_blank">
-            <span className="text-slate-800 hover:text-slate-600">
+            <span className="text-slate-800 hover:text-slate-600 dark:text-slate-200 dark:hover:text-slate-300">
               {article?.title}
             </span>
           </a>

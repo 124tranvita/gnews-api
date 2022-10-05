@@ -36,13 +36,13 @@ export function FeatureVideos({ variant }: Props) {
           <YoutubeEmbed embedId="rokGy0huYEA" />
         </div>
         <div className="col-span-full md:col-span-2 lg:col-span-1">
-          <YoutubeEmbed embedId="rokGy0huYEA" />
+          <YoutubeEmbed embedId="xeeEb9MKKYA" />
         </div>
         <div className="col-span-full md:col-span-2 lg:col-span-1">
-          <YoutubeEmbed embedId="rokGy0huYEA" />
+          <YoutubeEmbed embedId="8ZxPKOzl6Q8" />
         </div>
         <div className="col-span-full md:col-span-2 lg:col-span-1">
-          <YoutubeEmbed embedId="rokGy0huYEA" />
+          <YoutubeEmbed embedId="Df45YYgqeNY" />
         </div>
       </div>
     </div>

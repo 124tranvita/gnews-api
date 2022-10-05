@@ -32,15 +32,15 @@ export function Search() {
   return (
     <>
       <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}>
-        <div className="relative flex justify-between w-60 border border-slate-200 rounded-2xl px-4">
+        <div className="relative flex justify-between lg:ml-auto w-60 border border-slate-200 dark:border-slate-500 rounded-2xl px-4">
           <input
             type="text"
-            className="w-full py-3 focus:outline-none text-sm"
+            className="w-full py-3 focus:outline-none text-sm dark:bg-gray-600"
             placeholder="Search"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
           />
-          <button className="pl-4">
+          <button className="pl-4 dark:text-stone-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -101,10 +101,10 @@ function ResultModal({ isOpen, closeModal, keyword }: ResultModalPRops) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-white dark:bg-slate-800 p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900 pb-2"
+                    className="text-lg font-medium leading-6 text-gray-900 dark:text-gray-200 pb-2"
                   >
                     Search result for:{" "}
                     <span className=" italic font-semibold">{keyword}</span>

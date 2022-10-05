@@ -12,7 +12,7 @@ type Props = {
 
 export function Layout({ children }: Props) {
   return (
-    <div>
+    <div className="overflow-y-hidden dark:bg-gray-600">
       <Topbar />
       <TopbarLogo />
       <MenuBarDesktop />
