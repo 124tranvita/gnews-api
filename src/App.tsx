@@ -43,46 +43,46 @@ function App() {
 
   /**Note: GNews API limited maximun request per sec by 1 for free user */
   useEffect(() => {
-    dispatch(fetchToplineArticles({ token, lang }));
+    // dispatch(fetchToplineArticles({ token, lang }));
   }, [token, lang]);
 
-  useEffect(() => {
-    /**Use setTimeOut to limit request per sec. */
-    const timer = setTimeout(
-      () =>
-        dispatch(
-          fetchEntertainmentArticles({
-            token,
-            lang,
-            keyword: entertainmentKeyword,
-          })
-        ),
-      2000
-    );
-    return () => clearTimeout(timer);
-  }, [token, lang, entertainmentKeyword]);
+  // useEffect(() => {
+  //   /**Use setTimeOut to limit request per sec. */
+  //   const timer = setTimeout(
+  //     () =>
+  //       dispatch(
+  //         fetchEntertainmentArticles({
+  //           token,
+  //           lang,
+  //           keyword: entertainmentKeyword,
+  //         })
+  //       ),
+  //     2000
+  //   );
+  //   return () => clearTimeout(timer);
+  // }, [token, lang, entertainmentKeyword]);
 
-  useEffect(() => {
-    /**Use setTimeOut to limit request per sec. */
-    const timer = setTimeout(
-      () =>
-        dispatch(
-          fetchBusinessArticles({ token, lang, keyword: businessKeyword })
-        ),
-      4000
-    );
-    return () => clearTimeout(timer);
-  }, [token, lang, businessKeyword]);
+  // useEffect(() => {
+  //   /**Use setTimeOut to limit request per sec. */
+  //   const timer = setTimeout(
+  //     () =>
+  //       dispatch(
+  //         fetchBusinessArticles({ token, lang, keyword: businessKeyword })
+  //       ),
+  //     4000
+  //   );
+  //   return () => clearTimeout(timer);
+  // }, [token, lang, businessKeyword]);
 
-  useEffect(() => {
-    /**Use setTimeOut to limit request per sec. */
-    const timer = setTimeout(
-      () =>
-        dispatch(fetchTravelArticles({ token, lang, keyword: travelKeyword })),
-      6000
-    );
-    return () => clearTimeout(timer);
-  }, [token, lang, travelKeyword]);
+  // useEffect(() => {
+  //   /**Use setTimeOut to limit request per sec. */
+  //   const timer = setTimeout(
+  //     () =>
+  //       dispatch(fetchTravelArticles({ token, lang, keyword: travelKeyword })),
+  //     6000
+  //   );
+  //   return () => clearTimeout(timer);
+  // }, [token, lang, travelKeyword]);
 
   if (isLoading) {
     return (
