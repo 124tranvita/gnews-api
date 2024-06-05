@@ -1,6 +1,9 @@
 # Simple NEWS - ReactJS App
 Simple news website that was created by ReactJS + TypeScript and GNews API base on MAGNEWS2 template (powered by Colorlib).
 
+## Live demo
+Live demo at: [Simple NEWS](https://124tranvita.github.io/gnews-api/)
+
 ## Table of content
 * [General info](#general-info)
 * [Technologies](#technologies)
